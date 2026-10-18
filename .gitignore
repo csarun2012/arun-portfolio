@@ -10,6 +10,8 @@ test-results/
 # Local credentials and private resume source files
 aruncs RESUME_KV_KEY.txt
 assets/CV/
+*.pdf
+resume-encryption-key
 *.pem
 *.pfx
 

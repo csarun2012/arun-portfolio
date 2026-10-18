@@ -1,5 +1,9 @@
 # How to Update the Private Resume
 
+For the automated encrypted Git workflow, see
+[`private-resume/README.md`](private-resume/README.md). The steps below remain
+the manual fallback; do not run both procedures for the same update.
+
 This is the standalone maintenance runbook for replacing the resume served by
 `https://aruncs.pages.dev`.
 

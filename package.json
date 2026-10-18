@@ -7,6 +7,9 @@
     "node": ">=22"
   },
   "scripts": {
+    "resume:setup": "node scripts/prepare-resume.mjs --setup",
+    "resume:prepare": "node scripts/prepare-resume.mjs",
+    "resume:commit": "node scripts/commit-resume.mjs",
     "build": "node scripts/build-static.mjs",
     "test": "node --test",
     "validate": "node scripts/validate-implementation.mjs",
