@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: cloudflare-pages-production
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   test-build-deploy:
@@ -42,11 +42,10 @@ jobs:
         run: pnpm run check
 
       - name: Deploy production to Cloudflare Pages
-        id: deploy
-        uses: cloudflare/wrangler-action@v4
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          packageManager: pnpm
-          command: pages deploy dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }} --branch=main
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/deploy-private-resume.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT_NAME: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
+          CLOUDFLARE_RESUME_API_TOKEN: ${{ secrets.CLOUDFLARE_RESUME_API_TOKEN }}
+          RESUME_ENCRYPTION_KEY: ${{ secrets.RESUME_ENCRYPTION_KEY }}

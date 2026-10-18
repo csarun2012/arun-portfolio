@@ -1,0 +1,2 @@
+.githooks/* text eol=lf
+private-resume/*.json -diff
