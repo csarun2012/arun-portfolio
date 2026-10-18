@@ -163,15 +163,9 @@
             <p class="hero-name">Arun C S</p>
             <p class="eyebrow"><span></span> Staff Software Engineer</p>
             <h1 id="hero-title" aria-label="Engineering resilient systems at scale.">
-              <span class="hero-line">Engineering</span>
-              <span class="hero-line">resilient systems</span>
-              <span class="hero-line"><em>at scale.</em></span>
+              <span class="hero-line">Engineering resilient</span>
+              <span class="hero-line">systems <em>at scale.</em></span>
             </h1>
-            <a class="hero-expert-label" href="#credentials">
-              <i class="ph ph-seal-check" aria-hidden="true"></i>
-              <span>IBM Developer Profession · <strong>Level 3 Expert</strong></span>
-              <span aria-hidden="true">↗</span>
-            </a>
             <p class="hero-lead">
               I design distributed platforms, modernize cloud systems, and build AI-assisted engineering tools.
             </p>
@@ -190,11 +184,17 @@
             </div>
           </div>
 
-          <div class="hero-visual" role="img" aria-label="Arun C S with a backend system architecture illustration">
+          <div class="hero-visual" role="group" aria-label="Portrait and professional recognition">
+            <span class="sr-only" role="img" aria-label="Arun C S with a backend system architecture illustration"></span>
             <span class="hero-ambient" aria-hidden="true"></span>
             <span class="hero-architecture-drift" aria-hidden="true"></span>
             <span class="hero-data-light hero-data-light-a" aria-hidden="true"></span>
             <span class="hero-data-light hero-data-light-b" aria-hidden="true"></span>
+            <a class="portrait-expert-label" href="#credentials">
+              <i class="ph ph-seal-check" aria-hidden="true"></i>
+              <span><strong>IBM Level 3 Expert</strong><small>Subject Matter Expert</small></span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
@@ -221,6 +221,41 @@
             <strong>1B+</strong>
             <p>Log lines analyzed</p>
           </article>
+        </div>
+      </section>
+
+      <section class="selected-work" aria-labelledby="selected-work-title">
+        <div class="shell">
+          <div class="selected-work-heading">
+            <h2 id="selected-work-title">Selected engineering work</h2>
+            <a href="#stories">View all work <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="selected-work-grid">
+            <article class="work-preview">
+              <div class="work-preview-copy">
+                <h3><i class="ph ph-share-network" aria-hidden="true"></i> Enterprise data integration</h3>
+                <p>A reusable export platform and secure pipeline connecting sustainability data with enterprise planning.</p>
+                <div class="work-preview-outcome"><small>Outcome</small><strong>First commercial outbound integration</strong></div>
+                <ul aria-label="Technologies"><li>SQL</li><li>.NET</li><li>APIs</li></ul>
+                <a href="#story-enterprise-integration">Explore the project <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="work-preview-diagram" aria-label="Envizi data flows through an export service to enterprise planning">
+                <span><i class="ph ph-database" aria-hidden="true"></i>Envizi data</span><b aria-hidden="true">↓</b><span>Export service</span><b aria-hidden="true">↓</b><span>Planning Analytics</span>
+              </div>
+            </article>
+            <article class="work-preview">
+              <div class="work-preview-copy">
+                <h3><i class="ph ph-cloud" aria-hidden="true"></i> Cloud attachment platform</h3>
+                <p>A reusable .NET platform for migrating and serving enterprise attachments through AWS S3.</p>
+                <div class="work-preview-outcome"><small>Outcome</small><strong>10M files migrated · 300–400 GB reduced</strong></div>
+                <ul aria-label="Technologies"><li>.NET Core</li><li>AWS S3</li></ul>
+                <a href="#story-cloud-attachments">Explore the project <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="work-preview-diagram" aria-label="Database files migrate through restartable batches to AWS S3">
+                <span><i class="ph ph-database" aria-hidden="true"></i>Database files</span><b aria-hidden="true">↓</b><span>Restartable batches</span><b aria-hidden="true">↓</b><span><i class="ph ph-cloud" aria-hidden="true"></i>AWS S3</span>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -381,11 +416,14 @@
           </article>
 
           <div class="story-grid">
-            <article class="story-card">
+            <article class="story-card" id="story-enterprise-integration">
               <div class="story-card-head"><span>01</span><p>Enterprise integration</p></div>
               <div class="story-outcome"><span>Key outcome</span><strong>First commercial outbound integration</strong></div>
               <h3>Connecting sustainability data with enterprise planning</h3>
               <p class="story-summary">Designed a reusable export platform and secure integration pipeline capable of processing millions of ESG records across different enterprise data models.</p>
+              <div class="story-role"><strong>My role</strong><span>Solution architecture, cross-product integration design, and reusable export-platform delivery.</span></div>
+              <details class="content-details story-details">
+                <summary>Read case study</summary>
               <ol class="story-flow" aria-label="Architecture flow from Envizi data to Planning Analytics">
                 <li><i class="ph ph-database" aria-hidden="true"></i>Envizi data</li><li><i class="ph ph-export" aria-hidden="true"></i>Export service</li><li><i class="ph ph-cloud" aria-hidden="true"></i>Cloud storage</li><li><i class="ph ph-chart-line-up" aria-hidden="true"></i>Planning Analytics</li>
               </ol>
@@ -394,15 +432,18 @@
                 <div><dt>Decisions</dt><dd>Separated generic dataset generation from the Planning Analytics delivery component, with controlled batches, validation, retries, logging, and restartability.</dd></div>
                 <div><dt>Impact</dt><dd>Created Envizi’s first commercially available outbound integration and a reusable export capability for future analytics use cases.</dd></div>
               </dl>
-              <div class="story-role"><strong>My role</strong><span>Solution architecture, cross-product integration design, and reusable export-platform delivery.</span></div>
+              </details>
               <ul class="story-tags" aria-label="Technologies used"><li>SQL</li><li>ETL</li><li>.NET</li><li>APIs</li><li>Cloud storage</li></ul>
             </article>
 
-            <article class="story-card">
+            <article class="story-card" id="story-cloud-attachments">
               <div class="story-card-head"><span>02</span><p>Cloud modernization</p></div>
               <div class="story-outcome"><span>Key outcome</span><strong>10M files migrated · 300–400 GB reduced</strong></div>
               <h3>Moving ten million attachments safely to object storage</h3>
               <p class="story-summary">Led the solution design and core development of a reusable .NET Core attachment platform backed by AWS S3.</p>
+              <div class="story-role"><strong>My role</strong><span>Primary developer and solution designer for the reusable attachment platform and global migration.</span></div>
+              <details class="content-details story-details">
+                <summary>Read case study</summary>
               <ol class="story-flow" aria-label="Architecture flow from database files to validated cloud references">
                 <li><i class="ph ph-files" aria-hidden="true"></i>Database files</li><li><i class="ph ph-stack" aria-hidden="true"></i>Restartable batches</li><li><i class="ph ph-cloud-arrow-up" aria-hidden="true"></i>AWS S3</li><li><i class="ph ph-check-circle" aria-hidden="true"></i>Validated references</li>
               </ol>
@@ -411,7 +452,7 @@
                 <div><dt>Decisions</dt><dd>Stable object references, authorization-first pre-signed URLs, restartable batches, reconciliation, targeted retries, and a controlled rollback window.</dd></div>
                 <div><dt>Impact</dt><dd>Completed the migration across global environments and reduced database storage by an estimated 300–400 GB.</dd></div>
               </dl>
-              <div class="story-role"><strong>My role</strong><span>Primary developer and solution designer for the reusable attachment platform and global migration.</span></div>
+              </details>
               <ul class="story-tags" aria-label="Technologies used"><li>.NET Core</li><li>AWS S3</li><li>APIs</li><li>Batch migration</li></ul>
             </article>
 
@@ -420,6 +461,9 @@
               <div class="story-outcome"><span>Key outcome</span><strong>Reusable reporting authorization foundation</strong></div>
               <h3>Creating reusable, granular reporting authorization</h3>
               <p class="story-summary">Replaced broad report visibility with a consistent authorization model spanning access levels, work roles, groups, and individual users.</p>
+              <div class="story-role"><strong>My role</strong><span>Led the authorization-model design and implementation across database, backend, reporting, and user-experience layers.</span></div>
+              <details class="content-details story-details">
+                <summary>Read case study</summary>
               <ol class="story-flow" aria-label="Architecture flow from access context to authorized Power BI reports">
                 <li><i class="ph ph-identification-card" aria-hidden="true"></i>Access context</li><li><i class="ph ph-code" aria-hidden="true"></i>.NET services</li><li><i class="ph ph-shield-check" aria-hidden="true"></i>Report policy</li><li><i class="ph ph-chart-bar" aria-hidden="true"></i>Power BI</li>
               </ol>
@@ -428,7 +472,7 @@
                 <div><dt>Decisions</dt><dd>A reusable workflow across SQL, .NET services, APIs, Power BI integration, and the user experience.</dd></div>
                 <div><dt>Impact</dt><dd>Established a foundation for future reporting-security capabilities and reduced routine support dependency.</dd></div>
               </dl>
-              <div class="story-role"><strong>My role</strong><span>Led the authorization-model design and implementation across database, backend, reporting, and user-experience layers.</span></div>
+              </details>
               <ul class="story-tags" aria-label="Technologies used"><li>SQL Server</li><li>.NET</li><li>APIs</li><li>Power BI</li></ul>
             </article>
 
@@ -437,6 +481,9 @@
               <div class="story-outcome"><span>Key outcome</span><strong>≈60% less investigation effort</strong></div>
               <h3>Turning natural-language questions into production diagnostics</h3>
               <p class="story-summary">Developed an MCP and OpenSearch framework that converts an engineer’s question into diagnostic queries for Power BI refresh investigations.</p>
+              <div class="story-role"><strong>My role</strong><span>Designed and developed the MCP-based diagnostic framework and its OpenSearch query workflow.</span></div>
+              <details class="content-details story-details">
+                <summary>Read case study</summary>
               <ol class="story-flow" aria-label="Architecture flow from an engineer question to diagnostics">
                 <li><i class="ph ph-chat-text" aria-hidden="true"></i>Engineer question</li><li><i class="ph ph-plugs-connected" aria-hidden="true"></i>MCP server</li><li><i class="ph ph-magnifying-glass" aria-hidden="true"></i>OpenSearch DSL</li><li><i class="ph ph-pulse" aria-hidden="true"></i>Diagnostics</li>
               </ol>
@@ -445,7 +492,7 @@
                 <div><dt>Decisions</dt><dd>Natural-language intent translated into OpenSearch DSL with relevant execution, workspace, gateway, and dataset context.</dd></div>
                 <div><dt>Impact</dt><dd>Reduced investigation effort by an estimated 60% and created a foundation for automated diagnostics and proactive monitoring.</dd></div>
               </dl>
-              <div class="story-role"><strong>My role</strong><span>Designed and developed the MCP-based diagnostic framework and its OpenSearch query workflow.</span></div>
+              </details>
               <ul class="story-tags" aria-label="Technologies used"><li>MCP</li><li>OpenSearch</li><li>OpenSearch DSL</li><li>AI workflows</li></ul>
             </article>
           </div>
@@ -467,8 +514,9 @@
             </div>
             <h2 id="innovation-title">EMMA — Emotional Multi-Modal Assistance AI</h2>
             <p class="innovation-lead">A multimodal AI concept exploring how digital systems can interpret emotional context and adapt their responses to create more empathetic, relevant, and human-centered experiences.</p>
-            <p>EMMA combines signals from text, speech, facial expressions, user behaviour, and interaction context. The framework proposes using this combined emotional context to adapt response tone, detail, communication style, recommended actions, and escalation behaviour.</p>
+<details class="content-details emma-details"><summary>How EMMA works</summary>            <p>EMMA combines signals from text, speech, facial expressions, user behaviour, and interaction context. The framework proposes using this combined emotional context to adapt response tone, detail, communication style, recommended actions, and escalation behaviour.</p></details>
 
+            <div class="emma-outcome"><span>Published outcome</span><strong>IBM defensive publication · June 1, 2026</strong><p>Published as prior art for multimodal, emotionally aware assistance systems.</p></div>
             <div class="signal-list" aria-label="EMMA innovation themes">
               <span>Multimodal AI</span><span>Emotional context</span><span>Assistance systems</span><span>Responsible innovation</span>
             </div>
@@ -479,6 +527,7 @@
               <p>I contributed to defining the problem, exploring how multimodal emotional signals could be combined, and developing the invention disclosure through IBM’s intellectual-property process.</p>
             </div>
 
+            <details class="content-details emma-details"><summary>Publication details &amp; identifiers</summary>
             <dl class="publication-meta">
               <div><dt>Publication ID</dt><dd>IPCOM000278086D</dd></div>
               <div><dt>Invention reference</dt><dd>P202504128</dd></div>
@@ -487,6 +536,7 @@
               <div><dt>Publication type</dt><dd>Defensive publication</dd></div>
               <div><dt>Outcome</dt><dd>Published as prior art</dd></div>
             </dl>
+            </details>
 
             <a class="button button-primary publication-link" href="https://priorart.ip.com/IPCOM/000278086D" target="_blank" rel="noreferrer">View defensive publication <span aria-hidden="true">↗</span></a>
           </div>
@@ -551,11 +601,11 @@
                 <p class="job-scope">Enterprise sustainability platform · Backend architecture, data integration and AI-assisted engineering</p>
                 <p class="job-summary">Leading the design and evolution of backend services, data workflows, and platform capabilities for enterprise sustainability reporting.</p>
                 <ul class="experience-points">
-                  <li>Lead the design and delivery of backend services, platform enhancements, and architectural initiatives for the IBM Envizi Reporting Module.</li>
-                  <li>Architected a scalable enterprise integration that contributed to a 25% increase in product sales and earned the IBM Entrepreneur Award.</li>
-                  <li>Designed an MCP server connecting AI workflows with Elasticsearch log data, reducing troubleshooting effort by an estimated 60%.</li>
-                  <li>Drive architecture discussions, performance optimization, code reviews, cross-team delivery, and technical mentorship.</li>
-                </ul>
+<li>Lead the design and delivery of backend services, platform enhancements, and architectural initiatives for the IBM Envizi Reporting Module.</li>
+<li>Architected a scalable enterprise integration that contributed to a 25% increase in product sales and earned the IBM Entrepreneur Award.</li>
+<li>Designed an MCP server connecting AI workflows with Elasticsearch log data, reducing troubleshooting effort by an estimated 60%.</li>
+</ul>
+<details class="content-details experience-details"><summary>More contributions</summary><ul class="experience-points"><li>Drive architecture discussions, performance optimization, code reviews, cross-team delivery, and technical mentorship.</li></ul></details>
                 <p class="job-stack"><strong>Core stack</strong><span>.NET Core</span><span>SQL Server</span><span>SSIS/SSAS</span><span>Power BI</span><span>Elasticsearch</span><span>MCP</span></p>
                 <p class="job-impact-label">Impact</p>
                 <div class="job-highlights">
@@ -581,11 +631,11 @@
               <p class="job-scope">Medical imaging R&amp;D · Distributed systems, diagnostic tooling and communication frameworks</p>
               <p class="job-summary">Built high-performance distributed medical software, reusable communication frameworks, and diagnostic automation for CT Modality R&amp;D.</p>
               <ul class="experience-points">
-                <li>Contributed to the design and development of distributed medical software used in CT Modality R&amp;D.</li>
-                <li>Developed a knowledge-based tool that analyzed more than 1 billion log lines across 15,000+ files, reducing manual investigation time by 95%.</li>
-                <li>Built a modular communication framework supporting gRPC, NetMQ, and WCF with caching, exception handling, and service-proxy control.</li>
-                <li>Created ELK dashboards for analyzing large-scale hospital-reported diagnostic data.</li>
-              </ul>
+<li>Contributed to the design and development of distributed medical software used in CT Modality R&amp;D.</li>
+<li>Developed a knowledge-based tool that analyzed more than 1 billion log lines across 15,000+ files, reducing manual investigation time by 95%.</li>
+<li>Built a modular communication framework supporting gRPC, NetMQ, and WCF with caching, exception handling, and service-proxy control.</li>
+</ul>
+<details class="content-details experience-details"><summary>More contributions</summary><ul class="experience-points"><li>Created ELK dashboards for analyzing large-scale hospital-reported diagnostic data.</li></ul></details>
               <p class="job-stack"><strong>Core stack</strong><span>.NET</span><span>gRPC</span><span>NetMQ</span><span>WCF</span><span>ELK Stack</span></p>
               <p class="job-impact-label">Impact</p>
               <div class="job-highlights">
@@ -611,11 +661,11 @@
               <p class="job-scope">Healthcare SaaS · Clinical platform development, backend integration and data performance</p>
               <p class="job-summary">Owned engineering for the Clinical module of a cloud dental platform, improving data performance, reliability, and maintainability.</p>
               <ul class="experience-points">
-                <li>Led end-to-end development for the Clinical module of a cloud-based dental practice-management platform.</li>
-                <li>Optimized SQL queries and schema design, contributing to an approximately 40% improvement in database performance.</li>
-                <li>Integrated DoseSpot prescription management, strengthening the platform’s clinical capabilities and supporting client acquisition.</li>
-                <li>Modernized critical components from AngularJS to Angular and served as Scrum Master for a seven-member team.</li>
-              </ul>
+<li>Led end-to-end development for the Clinical module of a cloud-based dental practice-management platform.</li>
+<li>Optimized SQL queries and schema design, contributing to an approximately 40% improvement in database performance.</li>
+<li>Integrated DoseSpot prescription management, strengthening the platform’s clinical capabilities and supporting client acquisition.</li>
+</ul>
+<details class="content-details experience-details"><summary>More contributions</summary><ul class="experience-points"><li>Modernized critical components from AngularJS to Angular and served as Scrum Master for a seven-member team.</li></ul></details>
               <p class="job-stack"><strong>Core stack</strong><span>.NET</span><span>SQL Server</span><span>Angular</span><span>API integrations</span></p>
               <p class="job-impact-label">Impact</p>
               <div class="job-highlights">
@@ -683,6 +733,16 @@
                   <div class="credential-links">
                     <a href="https://www.credly.com/badges/8a2ef835-3e9e-4a03-a2c0-c583b904376d/public_url" target="_blank" rel="noreferrer">Verify Level 3 Expert credential ↗</a>
                   </div>
+                  <details class="content-details linkedin-announcement" data-linkedin-announcement>
+                    <summary><i class="ph ph-linkedin-logo" aria-hidden="true"></i> View LinkedIn announcement</summary>
+                    <p class="linkedin-embed-note">This post loads from LinkedIn when you expand it.</p>
+                    <div class="linkedin-embed-container" data-linkedin-container></div>
+                    <template data-linkedin-template>
+                      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7511360858086608896?collapsed=1" height="467" width="504" allowfullscreen title="Arun C S — IBM Level 3 Expert announcement on LinkedIn" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </template>
+                    <a class="linkedin-post-fallback" href="https://www.linkedin.com/feed/update/urn:li:share:7511360858086608896/" target="_blank" rel="noopener noreferrer">Open on LinkedIn <span aria-hidden="true">↗</span></a>
+                  </details>
+ 
                 </div>
               </div>
             </article>
@@ -790,71 +850,65 @@
 
         <div class="recommendation-grid" id="recommendation-grid">
           <article class="recommendation-card recommendation-featured">
-            <div class="recommendation-card-label">
-              <span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span>
-              <span class="featured-label"><i class="ph ph-star" aria-hidden="true"></i> Featured</span>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">BG</span><div><strong>Bhawna Gosain</strong><small>Software Architect · Philips Innovation Campus</small></div></div>
+              <span class="recommendation-featured-tag"><i class="ph ph-star" aria-hidden="true"></i> Featured</span>
             </div>
-            <div class="recommendation-featured-body">
-              <div class="recommendation-featured-quote">
-                <span class="quote-mark" aria-hidden="true">“</span>
-                <blockquote>Arun consistently demonstrates a results-driven approach, effectively translating complex requirements into robust and efficient applications. His collaborative nature and problem-solving skills contribute significantly to the success of the projects he undertakes. I highly recommend Arun for any role that requires technical excellence, innovative thinking, and a strong work ethic.</blockquote>
-              </div>
-              <footer><span class="avatar-initials">BG</span><div><strong>Bhawna Gosain</strong><small>Software Architect · Philips Innovation Campus</small></div></footer>
-            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Technical excellence with business results.</strong> Turns complex requirements into reliable applications through collaboration, problem-solving, and a strong work ethic.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Arun consistently demonstrates a results-driven approach, effectively translating complex requirements into robust and efficient applications. His collaborative nature and problem-solving skills contribute significantly to the success of the projects he undertakes. I highly recommend Arun for any role that requires technical excellence, innovative thinking, and a strong work ethic.</blockquote></details>
           </article>
           <article class="recommendation-card">
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>As the great team player at Philips Healthcare, I have had the pleasure of working closely with Arun for almost two years. In this time, he has consistently demonstrated exceptional skills and contributions. Arun possesses an impressive range of skills, particularly in Microsoft technologies. Arun exhibits a commendable work ethic, often going above and beyond expectations. He tackle challenges with positivity and have shown a remarkable ability to handle situations or adapt to changes. He actively engage with team members, fostering a collaborative environment. Arun is a great asset to the team and was really happy having him in my team.</blockquote>
-            <footer><span class="avatar-initials">SL</span><div><strong>Shantha Lakshmi</strong><small>Senior Software Engineering Manager · Philips</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">SL</span><div><strong>Shantha Lakshmi</strong><small>Senior Software Engineering Manager · Philips</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Microsoft expertise and a dependable team mindset.</strong> Goes beyond expectations, adapts positively to challenges, and contributes to a collaborative environment.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>As the great team player at Philips Healthcare, I have had the pleasure of working closely with Arun for almost two years. In this time, he has consistently demonstrated exceptional skills and contributions. Arun possesses an impressive range of skills, particularly in Microsoft technologies. Arun exhibits a commendable work ethic, often going above and beyond expectations. He tackle challenges with positivity and have shown a remarkable ability to handle situations or adapt to changes. He actively engage with team members, fostering a collaborative environment. Arun is a great asset to the team and was really happy having him in my team.</blockquote></details>
           </article>
           <article class="recommendation-card">
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>Arun worked in my Team at Philips, we together worked for a year. He is Technically good and dedicated and committed towards his deliverables. Consistently in each Iteration. He is a team player and assist and guide the team members while they archive their deliverables. I wish Arun All the very best and am sure whichever team and company is part of is lucky :)</blockquote>
-            <footer><span class="avatar-initials">SM</span><div><strong>Surya Murthy</strong><small>Project Manager · Philips</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">SM</span><div><strong>Surya Murthy</strong><small>Project Manager · Philips</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Consistent delivery and practical team support.</strong> Combines technical ability with commitment, helping and guiding colleagues toward their deliverables.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Arun worked in my Team at Philips, we together worked for a year. He is Technically good and dedicated and committed towards his deliverables. Consistently in each Iteration. He is a team player and assist and guide the team members while they archive their deliverables. I wish Arun All the very best and am sure whichever team and company is part of is lucky :)</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>Arun has the amazing problem solving ability to solve technical problems in a very fast pace. Being a great team player he had helped me in few crucial and time bound tasks. Being a fresher in the industry Arun's Mentorship was surely helpful.</blockquote>
-            <footer><span class="avatar-initials">VJ</span><div><strong>Vijayanathan Jayaprakash</strong><small>Associate · Goldman Sachs</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">VJ</span><div><strong>Vijayanathan Jayaprakash</strong><small>Associate · Goldman Sachs</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Fast problem-solving and supportive mentorship.</strong> Helps teammates through urgent technical tasks and guides engineers entering the industry.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Arun has the amazing problem solving ability to solve technical problems in a very fast pace. Being a great team player he had helped me in few crucial and time bound tasks. Being a fresher in the industry Arun's Mentorship was surely helpful.</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>I am currently working with Arun, he is such a person, when there is deadline, management can trust a person to complete that task. He is the most energetic and emerging developers.</blockquote>
-            <footer><span class="avatar-initials">AK</span><div><strong>Anjan Kumar</strong><small>Senior Software Engineer · Philips</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">AK</span><div><strong>Anjan Kumar</strong><small>Senior Software Engineer · Philips</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Trusted to deliver under deadlines.</strong> Brings energy and dependability to time-sensitive development work.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>I am currently working with Arun, he is such a person, when there is deadline, management can trust a person to complete that task. He is the most energetic and emerging developers.</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>I worked with Arun in the same team. He is a very experienced individual in Microsoft Technologies and has a great sense of designing large scale applications. During our work I could see that he individually handled some of the complex modules of the large project. I am pretty sure that he would be a great asset for the organization wherever he will be hired.</blockquote>
-            <footer><span class="avatar-initials">TB</span><div><strong>Tanveer Singh Bhatia</strong><small>Full-Stack &amp; AI Developer · CGI</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">TB</span><div><strong>Tanveer Singh Bhatia</strong><small>Full-Stack &amp; AI Developer · CGI</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Large-scale application design and independent ownership.</strong> Applies Microsoft technology expertise to complex modules within major projects.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>I worked with Arun in the same team. He is a very experienced individual in Microsoft Technologies and has a great sense of designing large scale applications. During our work I could see that he individually handled some of the complex modules of the large project. I am pretty sure that he would be a great asset for the organization wherever he will be hired.</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>Arun is a motivated, hard-working, and intelligent developer who is expertise in his area. He makes sure all the deadlines meet and that also with the highest standards. I would recommend and endorse Arun.</blockquote>
-            <footer><span class="avatar-initials">ZI</span><div><strong>Zameel Ihsan N P</strong><small>Software Engineer · Boeing</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">ZI</span><div><strong>Zameel Ihsan N P</strong><small>Software Engineer · Boeing</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>High standards without missing deadlines.</strong> Brings motivation, hard work, and technical expertise to delivery.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Arun is a motivated, hard-working, and intelligent developer who is expertise in his area. He makes sure all the deadlines meet and that also with the highest standards. I would recommend and endorse Arun.</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>Arun is a self-motivated hard-working professional who is easy to approach when one is in need. He is confident and open to challenges. He is a good team player and boosts the confidence of the team.</blockquote>
-            <footer><span class="avatar-initials">RN</span><div><strong>Rohit Nair</strong><small>Senior Business Analyst · Amazon</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">RN</span><div><strong>Rohit Nair</strong><small>Senior Business Analyst · Amazon</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Approachable, confident, and supportive.</strong> Takes on challenges and helps strengthen the team’s confidence.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Arun is a self-motivated hard-working professional who is easy to approach when one is in need. He is confident and open to challenges. He is a good team player and boosts the confidence of the team.</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>Arun was essential to the team, and contributed significantly to the deliverabes. Arun is dedicated, self-motivated and very capable. He showed a high level of our domain technical skills and was a valuable contributor to our projects. Arun is a trustworthy individual and I will always hold him in the highest esteem.</blockquote>
-            <footer><span class="avatar-initials">PM</span><div><strong>Praveen Mohan</strong><small>Assistant Consultant · TCS</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">PM</span><div><strong>Praveen Mohan</strong><small>Assistant Consultant · TCS</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Trusted technical contributor.</strong> Combines domain expertise, initiative, and dedication to make meaningful contributions to team deliverables.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Arun was essential to the team, and contributed significantly to the deliverabes. Arun is dedicated, self-motivated and very capable. He showed a high level of our domain technical skills and was a valuable contributor to our projects. Arun is a trustworthy individual and I will always hold him in the highest esteem.</blockquote></details>
           </article>
           <article class="recommendation-card extra-recommendation" hidden>
-            <div class="recommendation-card-label"><span><i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn recommendation</span></div>
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <blockquote>Highly motivated and hardworking.... Good knowledge in various programming languages...</blockquote>
-            <footer><span class="avatar-initials">AK</span><div><strong>Arun Kappen</strong><small>Director · Levantar Solutions</small></div></footer>
+            <div class="recommendation-author-row">
+              <div class="recommendation-author"><span class="avatar-initials">AK</span><div><strong>Arun Kappen</strong><small>Director · Levantar Solutions</small></div></div>
+            </div>
+            <p class="recommendation-excerpt"><span class="recommendation-takeaway-label">Key takeaway</span><strong>Motivation, hard work, and programming knowledge.</strong> Recognized for dedication and knowledge across programming languages.</p><details class="content-details recommendation-details"><summary>Read full recommendation</summary><blockquote>Highly motivated and hardworking.... Good knowledge in various programming languages...</blockquote></details>
           </article>
         </div>
         <button class="show-more" id="show-more-recommendations" type="button" aria-expanded="false" aria-controls="recommendation-grid">
@@ -873,7 +927,9 @@
             <span class="contact-email-copy"><strong data-contact-email-label aria-live="polite">Email Me</strong><small>csarun.careers@gmail.com</small></span>
             <span class="contact-email-arrow" aria-hidden="true"><i class="ph ph-arrow-up-right"></i></span>
           </a>
+          <p class="contact-copy-status" data-copy-email-status role="status" aria-live="polite"></p>
           <div class="contact-links" aria-label="Other contact and profile links">
+            <button type="button" data-copy-email><i class="ph ph-copy" aria-hidden="true"></i><span>Copy email</span></button>
             <a href="https://www.linkedin.com/in/arun-c-s/" target="_blank" rel="noreferrer"><i class="ph ph-linkedin-logo" aria-hidden="true"></i><span>LinkedIn</span><i class="ph ph-arrow-up-right contact-link-arrow" aria-hidden="true"></i></a>
             <a href="https://github.com/csarun2012" target="_blank" rel="noreferrer"><i class="ph ph-github-logo" aria-hidden="true"></i><span>GitHub</span><i class="ph ph-arrow-up-right contact-link-arrow" aria-hidden="true"></i></a>
             <button type="button" data-resume-request><i class="ph ph-file-pdf" aria-hidden="true"></i><span>Request My Resume</span><i class="ph ph-arrow-up-right contact-link-arrow" aria-hidden="true"></i></button>
@@ -916,6 +972,9 @@
                 <span>Company <em aria-hidden="true">*</em></span>
                 <input name="company" type="text" required maxlength="160" autocomplete="organization" />
               </label>
+              <details class="resume-optional content-details">
+                <summary>Additional details <small>Optional</small></summary>
+                <div class="resume-optional-grid">
               <label class="resume-field resume-field-wide">
                 <span>LinkedIn profile URL <small>Optional</small></span>
                 <input name="linkedinUrl" type="url" maxlength="300" autocomplete="url" inputmode="url" placeholder="https://www.linkedin.com/in/…" />
@@ -925,6 +984,8 @@
                 <textarea name="message" maxlength="1000" rows="4"></textarea>
                 <small class="resume-character-count" data-resume-character-count>0 / 1000</small>
               </label>
+                </div>
+              </details>
             </div>
 
             <p class="resume-privacy-note" id="resume-request-privacy">

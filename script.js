@@ -672,6 +672,8 @@ resumeRequestForm?.addEventListener('submit', async (event) => {
     linkedInField?.setCustomValidity('');
   }
 
+  const invalidOptionalField = resumeRequestForm.querySelector('.resume-optional :invalid');
+  if (invalidOptionalField) invalidOptionalField.closest('details').open = true;
   if (!resumeRequestForm.reportValidity()) return;
   if (!resumeTurnstileToken) {
     setResumeStatus('Please complete the security verification.');
@@ -744,3 +746,24 @@ if (window.location.hash === '#request-resume') {
   history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
   window.requestAnimationFrame(() => openResumeDialog(resumeRequestOpeners[0]));
 }
+
+document.querySelector('[data-copy-email]')?.addEventListener('click', async () => {
+  const status = document.querySelector('[data-copy-email-status]');
+  try {
+    await navigator.clipboard.writeText('csarun.careers@gmail.com');
+    status.textContent = 'Email address copied.';
+  } catch {
+    status.textContent = 'Please copy this address: csarun.careers@gmail.com';
+  }
+});
+
+document.querySelectorAll('[data-linkedin-announcement]').forEach(announcement => {
+  announcement.addEventListener('toggle', () => {
+    if (!announcement.open) return;
+    const container = announcement.querySelector('[data-linkedin-container]');
+    const template = announcement.querySelector('[data-linkedin-template]');
+    if (container && template && !container.querySelector('iframe')) {
+      container.append(template.content.cloneNode(true));
+    }
+  });
+});
