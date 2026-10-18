@@ -1,0 +1,19 @@
+{
+  "name": "arun-portfolio-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build-static.mjs",
+    "test": "node --test",
+    "validate": "node scripts/validate-implementation.mjs",
+    "check": "pnpm run test && pnpm run build && pnpm run validate"
+  },
+  "devDependencies": {
+    "wrangler": "4.114.0"
+  }
+}
+

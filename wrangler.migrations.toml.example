@@ -1,0 +1,11 @@
+# Migration-only Wrangler configuration.
+# Copy to the ignored `wrangler.migrations.toml`, replace only the database ID,
+# and pass it explicitly with `--config`. Do not use this file for deployment.
+name = "aruncs-d1-migrations"
+compatibility_date = "2026-07-25"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aruncs-resume-requests"
+database_id = "replace-with-d1-database-id"
+migrations_dir = "migrations"

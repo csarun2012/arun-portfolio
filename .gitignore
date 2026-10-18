@@ -1,0 +1,24 @@
+node_modules/
+dist/
+.pnpm-store/
+.wrangler/
+.dev.vars
+wrangler.toml
+wrangler.migrations.toml
+test-results/
+
+# Local credentials and private resume source files
+aruncs RESUME_KV_KEY.txt
+assets/CV/
+*.pem
+*.pfx
+
+# Local browser profiles and generated visual checks
+.edge-*/
+*-preview.png
+*-preview-v*.png
+*-responsive-preview.png
+
+# Local agent/editor metadata
+.agents/
+.codex/

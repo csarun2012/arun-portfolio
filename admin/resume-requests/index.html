@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#050608" />
+    <title>Resume Requests | Arun C S</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/admin/resume-requests/styles.css" />
+    <script src="/admin/resume-requests/script.js" defer></script>
+  </head>
+  <body class="admin-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="admin-header">
+      <a class="brand" href="/">Arun C S</a>
+      <span>Private resume requests</span>
+    </header>
+
+    <main class="admin-main" id="main">
+      <section class="admin-login-card" data-admin-login aria-labelledby="login-title" hidden>
+        <p class="eyebrow"><span></span> Restricted access</p>
+        <h1 id="login-title">Admin sign in</h1>
+        <p>Use the private admin password. The one-hour session is stored only in a secure, HTTP-only cookie.</p>
+        <form data-admin-login-form novalidate>
+          <label class="admin-field">
+            <span>Password</span>
+            <input name="password" type="password" required maxlength="1024" autocomplete="current-password" />
+          </label>
+          <div class="admin-turnstile" data-admin-turnstile aria-label="Security verification"></div>
+          <p class="admin-form-status" data-admin-login-status role="alert" aria-live="polite"></p>
+          <button class="button button-primary" type="submit" data-admin-login-submit>Sign in</button>
+        </form>
+      </section>
+
+      <section class="admin-dashboard" data-admin-dashboard aria-labelledby="dashboard-title" hidden>
+        <div class="admin-title-row">
+          <div>
+            <p class="eyebrow"><span></span> Private dashboard</p>
+            <h1 id="dashboard-title">Resume requests</h1>
+            <p>Times are shown in your browser’s local timezone.</p>
+          </div>
+          <button class="button button-secondary admin-logout" type="button" data-admin-logout>Log out</button>
+        </div>
+
+        <form class="admin-filters" data-admin-filters role="search">
+          <label>
+            <span class="sr-only">Search requests</span>
+            <input name="search" type="search" maxlength="100" placeholder="Search name, email or company" />
+          </label>
+          <label>
+            <span class="sr-only">Filter by status</span>
+            <select name="status">
+              <option value="all">All statuses</option>
+              <option value="requested">Requested</option>
+              <option value="email-accepted">Email accepted by Gmail</option>
+              <option value="access-opened">Access page opened</option>
+              <option value="download-delivered">Download delivered</option>
+              <option value="expired">Expired</option>
+              <option value="limit-reached">Download limit reached</option>
+              <option value="email-failed">Email failed</option>
+            </select>
+          </label>
+          <button class="button button-secondary" type="submit">Apply</button>
+        </form>
+
+        <p class="admin-status" data-admin-status role="status" aria-live="polite">Loading requests…</p>
+        <div class="admin-request-list" data-admin-request-list></div>
+        <nav class="admin-pagination" aria-label="Request pages">
+          <button class="button button-secondary" type="button" data-admin-previous>Previous</button>
+          <span data-admin-page-label>Page 1</span>
+          <button class="button button-secondary" type="button" data-admin-next>Next</button>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /resume-access/
+Disallow: /api/
+
+Sitemap: https://aruncs.pages.dev/sitemap.xml

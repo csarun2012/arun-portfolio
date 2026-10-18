@@ -1,0 +1,23 @@
+# Copy this file to untracked wrangler.toml only after Stages 1–3 confirm the
+# existing Pages project name and create the free KV/D1 resources.
+name = "replace-with-existing-pages-project-name"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-07-24"
+
+[vars]
+PUBLIC_BASE_URL = "https://aruncs.pages.dev"
+RESUME_KV_KEY = "replace-with-private-kv-key"
+GMAIL_FROM_EMAIL = "csarun.careers@gmail.com"
+ADMIN_EMAIL = "csarun.careers@gmail.com"
+TURNSTILE_SITE_KEY = "replace-with-public-site-key"
+
+[[kv_namespaces]]
+binding = "RESUME_FILES"
+id = "replace-with-kv-namespace-id"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "replace-with-d1-database-name"
+database_id = "replace-with-d1-database-id"
+migrations_dir = "migrations"
+
