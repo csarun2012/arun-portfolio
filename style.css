@@ -2217,3 +2217,35 @@ body.resume-dialog-open { overflow: hidden; }
   #credentials .recognition-collection-heading { flex-direction: column; gap: 8px; padding-top: 32px; }
   #credentials .recognition-featured .publication-card .credential-links { margin-top: 18px; padding-top: 0; }
 }
+
+/* A personal introduction and a quieter transition into the portfolio. */
+.hero .hero-name { margin: 0 0 10px; color: #eef2f8; font-size: 24px; font-weight: 600; letter-spacing: -.03em; }
+.hero .hero-expert-label { display: inline-flex; align-items: center; gap: 9px; max-width: 100%; margin-top: 24px; padding: 9px 12px; border: 1px solid rgba(223, 193, 123, .25); border-radius: 8px; background: rgba(223, 193, 123, .045); color: #cbb785; font-size: 12px; line-height: 1.5; }
+.hero-expert-label i { flex: 0 0 auto; font-size: 18px; color: #dfc17b; }
+.hero-expert-label strong { font-weight: 600; color: #ead5a1; }
+.hero-expert-label:hover { border-color: rgba(223, 193, 123, .55); background: rgba(223, 193, 123, .08); }
+.hero-expert-label:focus-visible { outline: 2px solid #dfc17b; outline-offset: 4px; }
+.hero .hero-lead { max-width: 550px; margin-top: 20px; }
+.hero-actions .button-secondary { color: #d5deea; background: rgba(255, 255, 255, .025); }
+.hero-actions .button-secondary:hover { background: rgba(255, 255, 255, .06); }
+.homepage-endorsement { padding: 24px 0 36px; background: #05070a; }
+.endorsement-strip { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 30px; align-items: center; padding-block: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.endorsement-author { display: flex; align-items: center; gap: 15px; }
+.endorsement-mark { color: #82a4d2; font-size: 52px; line-height: .8; font-family: Georgia, serif; }
+.endorsement-author strong, .endorsement-author small { display: block; }
+.endorsement-author strong { color: #cbd3df; font-size: 13px; }
+.endorsement-author small { margin-top: 5px; color: #8591a2; font-size: 11px; }
+.endorsement-strip blockquote { margin: 0; max-width: 720px; color: #9ca7b6; font-size: 14px; line-height: 1.7; }
+.endorsement-strip > a { color: #8ebaf3; font-size: 12px; white-space: nowrap; }
+.endorsement-strip > a:hover { color: #d1e4ff; }
+@media (max-width: 900px) {
+  .endorsement-strip { grid-template-columns: auto minmax(0, 1fr); gap: 20px; }
+  .endorsement-strip > a { grid-column: 2; }
+}
+@media (max-width: 600px) {
+  .hero .hero-name { font-size: 22px; }
+  .hero .hero-expert-label { margin-top: 20px; font-size: 11px; gap: 8px; }
+  .endorsement-strip { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .endorsement-strip > a { grid-column: 1; }
+  .homepage-endorsement { padding-block: 20px 28px; }
+}
