@@ -1,5 +1,8 @@
 # How to Update the Private Resume
 
+For the everyday branch, commit, push, PR, and deployment steps, use
+[`RESUME_UPDATE_GUIDE.md`](RESUME_UPDATE_GUIDE.md).
+
 For the automated encrypted Git workflow, see
 [`private-resume/README.md`](private-resume/README.md). The steps below remain
 the manual fallback; do not run both procedures for the same update.
