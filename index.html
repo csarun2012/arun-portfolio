@@ -167,7 +167,7 @@
               <span class="hero-line">systems <em>at scale.</em></span>
             </h1>
             <p class="hero-lead">
-              I design distributed platforms, modernize cloud systems, and build AI-assisted engineering tools.
+              I build scalable .NET platforms, modernize cloud systems, and create AI-assisted engineering tools.
             </p>
             <p class="mobility-line">Bengaluru, India</p>
             <div class="hero-actions">
@@ -175,7 +175,7 @@
                 Explore My Work <span aria-hidden="true">↘</span>
               </a>
               <button class="button button-secondary" type="button" data-resume-request>
-                Request My Resume <span aria-hidden="true">↗</span>
+                Get My Resume <span aria-hidden="true">↗</span>
               </button>
             </div>
             <div class="profile-links" aria-label="Professional profiles">
@@ -576,7 +576,7 @@
             </div>
             <button class="experience-summary-link" type="button" data-resume-request>
               <span>Complete career history</span>
-              <strong>Request My Resume <i aria-hidden="true">↗</i></strong>
+              <strong>Get My Resume <i aria-hidden="true">↗</i></strong>
             </button>
           </div>
         </div>
@@ -921,18 +921,21 @@
         <div class="shell contact-content">
           <p class="eyebrow"><span></span> Contact</p>
           <h2 id="contact-title">Let’s build systems<br />that <em>last.</em></h2>
-          <p>For professional conversations, engineering leadership opportunities, or simply to exchange ideas about scalable software.</p>
-          <a class="contact-email" href="mailto:csarun.careers@gmail.com" aria-label="Email Arun C S at csarun.careers@gmail.com">
-            <span class="contact-email-icon" aria-hidden="true"><i class="ph ph-envelope-simple"></i></span>
-            <span class="contact-email-copy"><strong data-contact-email-label aria-live="polite">Email Me</strong><small>csarun.careers@gmail.com</small></span>
-            <span class="contact-email-arrow" aria-hidden="true"><i class="ph ph-arrow-up-right"></i></span>
-          </a>
+          <p>Let’s talk about engineering leadership, scalable platforms, and your next technical challenge.</p>
+          <div class="contact-actions" aria-label="Contact Arun or request a resume">
+            <a class="button button-primary contact-email" href="mailto:csarun.careers@gmail.com" aria-label="Email Arun C S at csarun.careers@gmail.com">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i><span data-contact-email-label aria-live="polite">Email Me</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <button class="button button-secondary contact-resume" type="button" data-resume-request><i class="ph ph-file-pdf" aria-hidden="true"></i><span>Get My Resume</span><i class="ph ph-arrow-up-right" aria-hidden="true"></i></button>
+          </div>
+          <div class="contact-address">
+            <span>csarun.careers@gmail.com</span>
+            <button type="button" class="contact-copy" data-copy-email aria-label="Copy email address" title="Copy email address"><i class="ph ph-copy" aria-hidden="true"></i></button>
+          </div>
           <p class="contact-copy-status" data-copy-email-status role="status" aria-live="polite"></p>
-          <div class="contact-links" aria-label="Other contact and profile links">
-            <button type="button" data-copy-email><i class="ph ph-copy" aria-hidden="true"></i><span>Copy email</span></button>
+          <div class="contact-links" aria-label="Professional profiles">
             <a href="https://www.linkedin.com/in/arun-c-s/" target="_blank" rel="noreferrer"><i class="ph ph-linkedin-logo" aria-hidden="true"></i><span>LinkedIn</span><i class="ph ph-arrow-up-right contact-link-arrow" aria-hidden="true"></i></a>
             <a href="https://github.com/csarun2012" target="_blank" rel="noreferrer"><i class="ph ph-github-logo" aria-hidden="true"></i><span>GitHub</span><i class="ph ph-arrow-up-right contact-link-arrow" aria-hidden="true"></i></a>
-            <button type="button" data-resume-request><i class="ph ph-file-pdf" aria-hidden="true"></i><span>Request My Resume</span><i class="ph ph-arrow-up-right contact-link-arrow" aria-hidden="true"></i></button>
           </div>
         </div>
       </section>
@@ -948,14 +951,14 @@
         <div class="resume-dialog-header">
           <div>
             <p class="eyebrow"><span></span> Private access</p>
-            <h2 id="resume-request-title">Request My Resume</h2>
+            <h2 id="resume-request-title">Get My Resume</h2>
           </div>
           <button class="resume-dialog-close" type="button" aria-label="Close resume request" data-resume-dialog-close>×</button>
         </div>
 
         <div class="resume-dialog-content">
           <p id="resume-request-description">
-            Resume updated October 2026. Share a few professional details and I’ll email you a private, one-hour access link.
+            Resume updated October 2026. Share a few professional details to download it now. I’ll also email you a private link valid for seven days.
           </p>
 
           <form id="resume-request-form" novalidate>
@@ -998,15 +1001,17 @@
             <div class="resume-form-actions">
               <button class="button button-secondary" type="button" data-resume-dialog-cancel>Cancel</button>
               <button class="button button-primary" type="submit" data-resume-submit>
-                <span aria-hidden="true">↗</span><span data-resume-submit-label>Send Access Link</span>
+                <span aria-hidden="true">↗</span><span data-resume-submit-label>Get Resume</span>
               </button>
             </div>
           </form>
 
           <div class="resume-success" data-resume-success hidden tabindex="-1" role="status" aria-live="polite">
             <span class="resume-success-icon" aria-hidden="true"><i class="ph ph-check"></i></span>
-            <h3>Request received</h3>
-            <p>Your resume access link has been sent. Please check your inbox. The link will remain active for one hour.</p>
+            <h3>Your resume is ready</h3>
+            <p data-resume-success-message>Download it now. We’ve also emailed you a link for later.</p>
+            <p data-resume-download-meta>Access expires in seven days · 3 downloads remaining</p>
+            <button class="button button-primary" type="button" data-resume-download hidden>Download resume</button>
             <button class="button button-secondary" type="button" data-resume-dialog-done>Close</button>
           </div>
         </div>

@@ -125,7 +125,7 @@ export function requesterMessage(env, requestData, accessUrl) {
     "",
     `Access Resume: ${accessUrl}`,
     "",
-    "This private link expires in one hour and allows up to three resume delivery attempts.",
+    "This private link expires in seven days and allows up to three resume delivery attempts.",
     "The request originated from aruncs.pages.dev.",
     "",
     "Regards,",
@@ -139,7 +139,7 @@ export function requesterMessage(env, requestData, accessUrl) {
 <h1 style="margin:0 0 20px;font-size:28px;line-height:1.2">Hello ${safeName},</h1>
 <p style="color:#c7cbd2;line-height:1.7">Thank you for your interest in my work. Your private resume access link is ready.</p>
 <p style="margin:28px 0"><a href="${safeAccessUrl}" style="display:inline-block;padding:14px 20px;border-radius:10px;background:#2589ff;color:#fff;text-decoration:none;font-weight:700">Access Resume</a></p>
-<p style="color:#aeb6c2;line-height:1.7">The link expires in one hour and permits up to three delivery attempts. It originated from <strong>aruncs.pages.dev</strong>.</p>
+<p style="color:#aeb6c2;line-height:1.7">The link expires in seven days and permits up to three delivery attempts. It originated from <strong>aruncs.pages.dev</strong>.</p>
 <p style="color:#7d8694;font-size:13px;line-height:1.6;word-break:break-all">If the button does not work, copy this link:<br><a href="${safeAccessUrl}" style="color:#7d9cff">${safeAccessUrl}</a></p>
 <p style="margin-top:34px;color:#c7cbd2;line-height:1.6">Regards,<br><strong>Arun C S</strong><br>Staff Software Engineer</p>
 </div></body></html>`;

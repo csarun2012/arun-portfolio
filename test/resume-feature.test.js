@@ -345,7 +345,7 @@ test("Turnstile accepts the exact production hostname and rejects failure or mis
   );
 });
 
-test("request creation stores only a token hash, expires in exactly one hour, and sends two separate emails", async () => {
+test("request creation stores only a token hash, expires in exactly seven days, and sends two separate emails", async () => {
   const repository = new MockRepository();
   const env = baseEnv(repository);
   const external = mockExternalFetch();
@@ -364,9 +364,26 @@ test("request creation stores only a token hash, expires in exactly one hour, an
   assert.equal("token" in stored, false);
   assert.equal(
     new Date(stored.expires_at).getTime() - new Date(stored.requested_at).getTime(),
-    60 * 60 * 1000,
+    7 * 24 * 60 * 60 * 1000,
   );
   assert.equal(stored.maximum_downloads, 3);
+  assert.equal(await sha256Hex(result.token), stored.token_hash);
+  assert.equal(result.expiresAt, stored.expires_at);
+  assert.equal(result.remainingDeliveries, 3);
+  env.RESUME_FILES = { async get() { return new Uint8Array([0x25, 0x50, 0x44, 0x46]).buffer; } };
+  const requesterEmail = Buffer.from(external.calls.rawMessages[0], 'base64url').toString('utf8');
+  const encodedText = requesterEmail.split('Content-Transfer-Encoding: base64\r\n\r\n')[1].split('--resume_')[0];
+  const emailText = Buffer.from(encodedText, 'base64').toString('utf8');
+  assert.ok(emailText.includes('#token=' + result.token));
+  assert.ok(emailText.includes('seven days'));
+  await deliverResume({ env, request: sameOriginRequest(), token: result.token, now: new Date(NOW.getTime() + 6 * 24 * 60 * 60 * 1000) });
+  for (let i = 0; i < 2; i += 1) {
+    await deliverResume({ env, request: sameOriginRequest(), token: result.token, now: NOW });
+  }
+  await assert.rejects(
+    deliverResume({ env, request: sameOriginRequest(), token: result.token, now: NOW }),
+    (error) => error.code === 'LIMIT_REACHED',
+  );
   assert.equal(stored.email_status, "accepted");
   assert.equal(stored.admin_email_status, "accepted");
   assert.equal(external.calls.gmail, 2);

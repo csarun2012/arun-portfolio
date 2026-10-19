@@ -118,7 +118,9 @@ downloadButton?.addEventListener('click', async () => {
     link.remove();
     window.setTimeout(() => URL.revokeObjectURL(objectUrl), 10_000);
 
-    remainingDeliveries -= 1;
+    const [used, maximum] = (response.headers.get('X-Resume-Delivery') || '').split('/').map(Number);
+    remainingDeliveries = Number.isInteger(used) && Number.isInteger(maximum) && maximum >= used
+      ? maximum - used : Math.max(0, remainingDeliveries - 1);
     accessMeta.textContent = `${remainingDeliveries} of 3 deliveries remaining`;
     setAccessState({
       kind: 'success',

@@ -2118,7 +2118,10 @@ body.resume-dialog-open { overflow: hidden; }
   padding: 16px 0 6px;
   outline: 0;
 }
-.resume-success[hidden] { display: none; }
+.resume-success[hidden], .resume-success [hidden] { display: none; }
+.resume-success [data-resume-download-meta] { margin-top: 0; font-size: 14px; }
+.resume-success .button { margin-bottom: 12px; }
+.resume-success .button:disabled { opacity: .65; cursor: default; }
 .resume-success-icon {
   width: 48px;
   height: 48px;
@@ -2416,4 +2419,26 @@ body.resume-dialog-open { overflow: hidden; }
   .selected-work-grid { grid-template-columns: minmax(0, 1fr); }
   .selected-work-heading { flex-wrap: wrap; gap: 8px; }
   .work-preview { padding: 20px; }
+}
+
+/* Contact actions and supporting profile links. */
+#contact .contact-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 500px; margin-top: 36px; }
+#contact .contact-actions .button { display: inline-flex; width: 100%; max-width: none; min-height: 58px; margin: 0; padding: 14px 20px; text-align: center; color: #f4f7fb; font-size: 15px; }
+#contact .contact-email { background: linear-gradient(135deg, #1688ff, #3f70ff); border-color: transparent; }
+#contact .contact-email:hover, #contact .contact-email:focus-visible, #contact .contact-email.is-activated { background: linear-gradient(135deg, #1688ff, #3f70ff); border-color: #82b7ff; }
+#contact .contact-resume { background: rgba(255, 255, 255, .035); cursor: pointer; }
+#contact .contact-actions i { font-size: 20px; }
+#contact .contact-actions i:last-child { margin-left: auto; font-size: 16px; }
+#contact .contact-address { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; color: #aeb6c2; font-size: 14px; }
+#contact .contact-address span { overflow-wrap: anywhere; min-width: 0; }
+#contact .contact-copy { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 1px solid transparent; border-radius: 10px; background: transparent; color: #9ca9ba; cursor: pointer; font-size: 19px; }
+#contact .contact-copy:hover { color: #f4f7fb; background: rgba(255, 255, 255, .05); }
+#contact .contact-copy:focus-visible { outline: 2px solid #70adff; outline-offset: 2px; }
+#contact .contact-copy-status { margin: 0; min-height: 20px; font-size: 12px; }
+#contact .contact-links { display: flex; width: auto; gap: 22px; margin-top: 18px; }
+#contact .contact-links a { padding: 6px 0; border: 0; background: transparent; font-size: 13px; }
+#contact .contact-links a:hover { color: #f4f7fb; background: transparent; }
+@media (max-width: 600px) {
+  #contact .contact-actions { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: 400px; align-self: center; margin-top: 28px; }
+  #contact .contact-address { font-size: 13px; }
 }

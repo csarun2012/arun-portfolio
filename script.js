@@ -496,6 +496,12 @@ const resumeSuccess = resumeDialog?.querySelector('[data-resume-success]');
 const resumeEmailField = resumeRequestForm?.elements.namedItem('email');
 const resumeMessageField = resumeRequestForm?.elements.namedItem('message');
 const resumeCharacterCount = resumeDialog?.querySelector('[data-resume-character-count]');
+const resumeDownloadButton = resumeDialog?.querySelector('[data-resume-download]');
+const resumeDownloadMeta = resumeDialog?.querySelector('[data-resume-download-meta]');
+const resumeSuccessMessage = resumeDialog?.querySelector('[data-resume-success-message]');
+let resumeDownloadToken = '';
+let resumeDownloadsRemaining = 0;
+let resumeDownloadPending = false;
 let resumeReturnFocus = null;
 let resumeTurnstileWidget = null;
 let resumeTurnstileToken = '';
@@ -593,6 +599,9 @@ const resetResumeDialog = () => {
   resumeRequestForm?.removeAttribute('hidden');
   if (resumeSuccess) resumeSuccess.hidden = true;
   resumeRequestSucceeded = false;
+  resumeDownloadToken = '';
+  resumeDownloadsRemaining = 0;
+  if (resumeDownloadButton) resumeDownloadButton.hidden = true;
   resumeIdempotencyKey = '';
   setResumeStatus();
   resetResumeTurnstile();
@@ -721,6 +730,17 @@ resumeRequestForm?.addEventListener('submit', async (event) => {
       throw failure;
     }
 
+    resumeDownloadToken = typeof result.token === 'string' ? result.token : '';
+    resumeDownloadsRemaining = result.remainingDeliveries || 0;
+    if (resumeDownloadButton) {
+      resumeDownloadButton.hidden = !resumeDownloadToken;
+      resumeDownloadButton.disabled = resumeDownloadPending;
+    }
+    resumeSuccessMessage.textContent = resumeDownloadToken
+      ? 'Download it now. We’ve also emailed you a link for later.'
+      : 'Your request was already received. Please use the access link in your inbox.';
+    resumeDownloadMeta.hidden = !resumeDownloadToken;
+    resumeDownloadMeta.textContent = 'Access expires in seven days · 3 downloads remaining';
     resumeRequestSucceeded = true;
     resumeRequestForm.hidden = true;
     if (resumeSuccess) {
@@ -738,7 +758,54 @@ resumeRequestForm?.addEventListener('submit', async (event) => {
   } finally {
     resumeSubmitButton.disabled = false;
     resumeRequestForm.removeAttribute('aria-busy');
-    if (resumeSubmitLabel) resumeSubmitLabel.textContent = 'Send Access Link';
+    if (resumeSubmitLabel) resumeSubmitLabel.textContent = 'Get Resume';
+  }
+});
+
+resumeDownloadButton?.addEventListener('click', async () => {
+  if (!resumeDownloadToken || resumeDownloadsRemaining < 1 || resumeDownloadPending) return;
+  const token = resumeDownloadToken;
+  resumeDownloadPending = true;
+  resumeDownloadButton.disabled = true;
+  resumeDownloadButton.setAttribute('aria-busy', 'true');
+  resumeDownloadButton.textContent = 'Preparing…';
+  try {
+    const response = await fetch('/api/resume/download', {
+      method: 'POST', credentials: 'same-origin',
+      headers: { Accept: 'application/pdf, application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+    if (!response.ok) {
+      const result = await response.json().catch(() => ({}));
+      if (token !== resumeDownloadToken) return;
+      if (['LIMIT_REACHED', 'EXPIRED_LINK', 'INVALID_LINK'].includes(result.code)) resumeDownloadsRemaining = 0;
+      resumeSuccessMessage.textContent = result.message || 'Download unavailable. Please try again.';
+      return;
+    }
+    const pdf = await response.blob();
+    if (pdf.type !== 'application/pdf') throw new Error('Invalid file');
+    const objectUrl = URL.createObjectURL(pdf);
+    const link = document.createElement('a');
+    link.href = objectUrl;
+    link.download = 'Arun-CS-Staff-Software-Engineer-Resume.pdf';
+    link.hidden = true;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 10_000);
+    if (token !== resumeDownloadToken) return;
+    const [used, maximum] = (response.headers.get('X-Resume-Delivery') || '').split('/').map(Number);
+    resumeDownloadsRemaining = Number.isInteger(used) && Number.isInteger(maximum) && maximum >= used
+      ? maximum - used : Math.max(0, resumeDownloadsRemaining - 1);
+    resumeSuccessMessage.textContent = 'Your download has started. The emailed link uses the same download allowance.';
+    resumeDownloadMeta.textContent = 'Access expires in seven days · ' + resumeDownloadsRemaining + ' downloads remaining';
+  } catch {
+    if (token === resumeDownloadToken) resumeSuccessMessage.textContent = 'The download could not be completed. Please try again or use your emailed link.';
+  } finally {
+    resumeDownloadPending = false;
+    resumeDownloadButton.removeAttribute('aria-busy');
+    resumeDownloadButton.textContent = 'Download resume';
+    resumeDownloadButton.disabled = resumeDownloadsRemaining < 1;
   }
 });
 

@@ -33,7 +33,7 @@ await requireText("functions/api/resume/download.js", [
   ["attachment disposition", /Content-Disposition/u],
 ]);
 await requireText("functions/_lib/resume-service.js", [
-  ["one-hour expiry", /ACCESS_TOKEN_TTL_SECONDS/u],
+  ["seven-day expiry", /ACCESS_TOKEN_TTL_SECONDS/u],
   ["maximum downloads", /MAX_DOWNLOADS/u],
   ["token hashing", /sha256Hex\(rawToken\)/u],
 ]);

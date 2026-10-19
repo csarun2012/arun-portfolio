@@ -100,7 +100,7 @@ static website output.
 ## 8. Test the live resume
 
 1. Open [the production portfolio](https://aruncs.pages.dev), rather than the preview URL.
-2. Select **Request My Resume** and submit a request using an eligible email address.
+2. Select **Get My Resume** and submit a request using an eligible email address.
 3. Open the emailed access link and download the resume.
 4. Confirm it is the new PDF.
 

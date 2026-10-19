@@ -319,7 +319,7 @@ Use a non-IBM email address that you control.
 
 1. Open `https://resume-request-preview.aruncs.pages.dev`.
 2. Hard refresh the page.
-3. Open **Request My Resume**.
+3. Open **Get My Resume**.
 4. Complete Turnstile and submit one request.
 5. Confirm the requester email arrives.
 6. Confirm the separate admin email arrives.
@@ -384,7 +384,7 @@ key.
 4. Open the resume dialog from each of its three buttons.
 5. Submit one controlled request using a non-IBM email address.
 6. Confirm requester and admin emails arrive.
-7. Open the one-hour access link.
+7. Open the seven-day access link.
 8. Select **Download Resume**.
 9. Open the PDF and confirm it is the new version.
 10. Confirm the admin dashboard records the request and delivery.

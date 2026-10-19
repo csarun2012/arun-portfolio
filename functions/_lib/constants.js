@@ -1,5 +1,5 @@
 export const ACCESS_TOKEN_BYTES = 32;
-export const ACCESS_TOKEN_TTL_SECONDS = 60 * 60;
+export const ACCESS_TOKEN_TTL_SECONDS = 7 * 24 * 60 * 60;
 export const MAX_DOWNLOADS = 3;
 
 export const REQUEST_LIMITS = Object.freeze({

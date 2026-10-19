@@ -12,7 +12,7 @@ import { getRepository } from "./repository.js";
 import { verifyTurnstile } from "./turnstile.js";
 
 const SUCCESS_MESSAGE =
-  "Your resume access link has been sent. Please check your inbox. The link will remain active for one hour.";
+  "Your resume is ready. We have also emailed you a link valid for seven days.";
 
 function isoBefore(now, milliseconds) {
   return new Date(now.getTime() - milliseconds).toISOString();
@@ -120,7 +120,7 @@ export async function createResumeRequest({
     await repository.markAdminEmail(id, "failed", null, new Date().toISOString());
   }
 
-  return { ok: true, message: SUCCESS_MESSAGE, idempotent: false };
+  return { ok: true, message: SUCCESS_MESSAGE, idempotent: false, token: rawToken, expiresAt, remainingDeliveries: MAX_DOWNLOADS };
 }
 
 export async function inspectResumeAccess({
