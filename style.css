@@ -2608,3 +2608,46 @@ body.resume-dialog-open { overflow: hidden; }
   .selected-work .work-preview, .work-connector, .work-preview-copy > a span { transition: none; }
   .selected-work .work-preview:hover, .work-preview-copy > a:hover span { transform: none; }
 }
+
+/* A stationary portrait with a gently responsive halo. */
+.hero .hero-ambient {
+  inset: 0; z-index: 2; opacity: .65; filter: blur(18px); pointer-events: none;
+  background: radial-gradient(ellipse at 58% 46%, transparent 0 29%, rgba(37,137,255,.2) 44%, transparent 67%);
+  animation: none; transform: translate3d(var(--spotlight-x, 0px), var(--spotlight-y, 0px), 0);
+  transition: transform 300ms var(--motion-ease); will-change: auto;
+}
+.hero .hero-architecture-drift { animation: none; transform: none; }
+.hero .hero-data-light { display: none; animation: none; }
+.hero-actions .button > span { display: inline-block; transition: transform 240ms var(--motion-ease); }
+.hero-actions a.button:focus-visible > span { transform: translate(2px, 2px); }
+.hero-actions button.button:focus-visible > span { transform: translate(2px, -2px); }
+.hero-work-cue { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-top: 20px; color: #94a9c4; font-size: 12px; letter-spacing: .03em; }
+.hero-work-cue span { color: #70adff; }
+.hero-work-cue:hover { color: #d7e8ff; }
+.hero-work-cue:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 4px; }
+#selected-work { scroll-margin-top: 86px; }
+@media (hover: hover) and (pointer: fine) {
+  .hero-actions a.button:hover > span { transform: translate(2px, 2px); }
+  .hero-actions button.button:hover > span { transform: translate(2px, -2px); }
+}
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .hero.hero-interactions-ready .hero-data-light-a { display: block; animation: heroConnectionSignal 4.8s linear 1; }
+}
+@keyframes heroConnectionSignal {
+  0%, 15% { opacity: 0; transform: translateX(0); }
+  20% { opacity: .7; }
+  43% { opacity: .7; transform: translateX(var(--flow-x)); }
+  47%, 60% { opacity: 0; transform: translateX(0); }
+  65% { opacity: .7; }
+  88% { opacity: .7; transform: translateX(var(--flow-x)); }
+  92%, 100% { opacity: 0; transform: translateX(var(--flow-x)); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero.hero-interactions-ready .hero-work-cue { animation: heroCueEntrance 600ms var(--motion-ease) 800ms both; }
+}
+@keyframes heroCueEntrance { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-ambient { transform: none; transition: none; }
+  .hero-actions .button > span { transition: none; }
+  .hero-actions .button:hover > span, .hero-actions .button:focus-visible > span { transform: none; }
+}

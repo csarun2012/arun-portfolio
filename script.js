@@ -872,3 +872,45 @@ document.querySelectorAll('.work-preview-copy > a[href^="#story-"]').forEach(lin
     if (details) details.open = true;
   });
 });
+
+// Keep the portrait stationary; only the surrounding halo follows a fine pointer.
+const heroSpotlight = document.querySelector('.hero-visual');
+const heroSection = document.querySelector('.hero');
+const heroFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+if (heroSpotlight && heroSection) {
+  let spotlightFrame = 0;
+  let spotlightX = 0;
+  let spotlightY = 0;
+  const resetSpotlight = () => {
+    window.cancelAnimationFrame(spotlightFrame);
+    spotlightFrame = 0;
+    heroSpotlight.style.removeProperty('--spotlight-x');
+    heroSpotlight.style.removeProperty('--spotlight-y');
+  };
+  heroSpotlight.addEventListener('pointermove', event => {
+    if (reducedMotionQuery.matches || !heroFinePointer.matches) return;
+    const bounds = heroSpotlight.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+    spotlightX = ((event.clientX - bounds.left) / bounds.width - .5) * 24;
+    spotlightY = ((event.clientY - bounds.top) / bounds.height - .5) * 18;
+    if (spotlightFrame) return;
+    spotlightFrame = window.requestAnimationFrame(() => {
+      heroSpotlight.style.setProperty('--spotlight-x', spotlightX + 'px');
+      heroSpotlight.style.setProperty('--spotlight-y', spotlightY + 'px');
+      spotlightFrame = 0;
+    });
+  });
+  heroSpotlight.addEventListener('pointerleave', resetSpotlight);
+  reducedMotionQuery.addEventListener('change', resetSpotlight);
+  heroFinePointer.addEventListener('change', resetSpotlight);
+  if ('IntersectionObserver' in window) {
+    const heroIntroObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      heroSection.classList.add('hero-interactions-ready');
+      observer.disconnect();
+    }, { threshold: .15 });
+    heroIntroObserver.observe(heroSection);
+  } else {
+    heroSection.classList.add('hero-interactions-ready');
+  }
+}
