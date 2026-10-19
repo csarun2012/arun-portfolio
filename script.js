@@ -36,7 +36,7 @@ if (menuButton && siteNav) {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 961 && menuButton.getAttribute('aria-expanded') === 'true') {
+    if (window.innerWidth >= 1100 && menuButton.getAttribute('aria-expanded') === 'true') {
       closeMenu();
     }
   });
@@ -704,8 +704,9 @@ resumeRequestForm?.addEventListener('submit', async (event) => {
   };
 
   resumeSubmitButton.disabled = true;
+  resumeSubmitButton.setAttribute('aria-busy', 'true');
   resumeRequestForm.setAttribute('aria-busy', 'true');
-  if (resumeSubmitLabel) resumeSubmitLabel.textContent = 'Sending…';
+  if (resumeSubmitLabel) resumeSubmitLabel.textContent = 'Preparing your resume…';
   setResumeStatus('Sending your request securely…');
 
   try {
@@ -757,6 +758,7 @@ resumeRequestForm?.addEventListener('submit', async (event) => {
     resetResumeTurnstile();
   } finally {
     resumeSubmitButton.disabled = false;
+    resumeSubmitButton.removeAttribute('aria-busy');
     resumeRequestForm.removeAttribute('aria-busy');
     if (resumeSubmitLabel) resumeSubmitLabel.textContent = 'Get Resume';
   }
