@@ -2519,3 +2519,43 @@ body.resume-dialog-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   [data-resume-submit][aria-busy="true"] .resume-submit-spinner { animation: none; }
 }
+
+/* EMMA: clear title hierarchy and quiet interactions around the framework. */
+#innovation .innovation-content h2 { margin-top: 24px; font-size: clamp(48px, 6vw, 76px); line-height: 1; }
+#innovation .innovation-content .innovation-subtitle { margin: 12px 0 0; color: #b5c9e5; font-size: clamp(18px, 2vw, 24px); font-weight: 500; line-height: 1.4; letter-spacing: -.02em; }
+#innovation .innovation-lead { margin-top: 20px; }
+#innovation .publication-link { margin-top: 22px; margin-bottom: 14px; }
+#innovation .publication-link > span { display: inline-block; transition: transform 240ms var(--motion-ease); }
+#innovation .emma-image-wrap { transition: transform 280ms var(--motion-ease), border-color 280ms var(--motion-ease), box-shadow 280ms var(--motion-ease); }
+#innovation .publication-link:focus-visible > span { transform: translate(2px, -2px); }
+@media (hover: hover) and (pointer: fine) {
+  #innovation .emma-image-wrap:hover { transform: translateY(-4px); border-color: rgba(101, 169, 255, .65); box-shadow: 0 36px 90px rgba(0, 0, 0, .4), 0 0 50px rgba(37, 137, 255, .17); }
+  #innovation .publication-link:hover > span { transform: translate(2px, -2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #innovation .emma-image-wrap, #innovation .publication-link > span { transition: none; }
+  #innovation .emma-image-wrap:hover, #innovation .publication-link:hover > span, #innovation .publication-link:focus-visible > span { transform: none; }
+}
+
+/* Signal pulses trace the original 900px framework artwork. */
+#innovation .emma-image-wrap { position: relative; padding: 0; }
+.emma-image-wrap img { display: block; }
+.emma-signal-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; }
+.emma-signal-enabled .emma-signal-overlay { opacity: 1; }
+.emma-input-pulse, .emma-output-pulse { fill: none; stroke: #a2e8ff; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 8 100; stroke-dashoffset: 8; opacity: 0; filter: drop-shadow(0 0 5px #2589ff); animation: emma-input-flow 6s linear infinite; }
+.emma-output-pulse { animation-name: emma-output-flow; }
+.emma-core-glow { opacity: 0; filter: drop-shadow(0 0 9px #2589ff); animation: emma-core-arrival 6s ease-in-out infinite; }
+.emma-signal-overlay .emma-input-pulse, .emma-signal-overlay .emma-output-pulse, .emma-signal-overlay .emma-core-glow { animation-play-state: paused; }
+.emma-signal-active .emma-input-pulse, .emma-signal-active .emma-output-pulse, .emma-signal-active .emma-core-glow { animation-play-state: running; }
+.emma-signal-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; color: #94a9c4; font-size: 11px; }
+.emma-signal-controls button { min-height: 44px; padding: 6px 10px; border: 1px solid rgba(101,169,255,.25); border-radius: 8px; background: transparent; color: #b5d6ff; cursor: pointer; font-size: 11px; }
+.emma-signal-controls button[hidden] { display: none; }
+.emma-signal-controls button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+@keyframes emma-input-flow { 0%, 6% { opacity: 0; stroke-dashoffset: 8; } 9% { opacity: 1; } 38% { opacity: 1; stroke-dashoffset: -100; } 41%, 100% { opacity: 0; stroke-dashoffset: -100; } }
+@keyframes emma-core-arrival { 0%, 35%, 70%, 100% { opacity: 0; } 44%, 52% { opacity: .8; } }
+@keyframes emma-output-flow { 0%, 58% { opacity: 0; stroke-dashoffset: 8; } 61% { opacity: 1; } 81% { opacity: 1; stroke-dashoffset: -100; } 84%, 100% { opacity: 0; stroke-dashoffset: -100; } }
+@media (prefers-reduced-motion: reduce) {
+  .emma-signal-overlay { display: none; }
+  .emma-signal-overlay * { animation: none; }
+  .emma-signal-controls button { display: none; }
+}

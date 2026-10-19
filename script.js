@@ -119,7 +119,9 @@ const revealConfigurations = [
   { selector: '#contact .eyebrow, #contact h2, #contact .contact-content > p:not(.eyebrow)', stagger: 0, baseDelay: 0 },
   { selector: '#contact .contact-email', stagger: 0, baseDelay: 80 },
   { selector: '#contact .contact-links', stagger: 0, baseDelay: 140 },
-  { selector: '.section-heading, .about-copy, .career-snapshot-row, .innovation-card, .featured-quote, .expertise-overview', stagger: 0 },
+  { selector: '#innovation .innovation-content', stagger: 0, baseDelay: 0 },
+  { selector: '#innovation .innovation-visual', stagger: 0, baseDelay: 140 },
+  { selector: '.section-heading, .about-copy, .career-snapshot-row, .featured-quote, .expertise-overview', stagger: 0 },
   { selector: '.impact-grid article', stagger: 75 },
   { selector: '.timeline-item', stagger: 55 },
   { selector: '.credential-grid article', stagger: 55 },
@@ -836,3 +838,28 @@ document.querySelectorAll('[data-linkedin-announcement]').forEach(announcement =
     }
   });
 });
+
+// Only animate the conceptual signal flow when it is visible and motion is welcome.
+const emmaSignals = document.querySelector('[data-emma-signals]');
+const emmaPauseButton = document.querySelector('[data-emma-pause]');
+if (emmaSignals && emmaPauseButton && 'IntersectionObserver' in window) {
+  let emmaVisible = false;
+  let emmaPaused = false;
+  const updateEmmaSignals = () => {
+    const enabled = !reducedMotionQuery.matches;
+    emmaSignals.classList.toggle('emma-signal-enabled', enabled);
+    emmaSignals.classList.toggle('emma-signal-active', enabled && emmaVisible && !emmaPaused && !document.hidden);
+    emmaPauseButton.hidden = !enabled;
+    emmaPauseButton.setAttribute('aria-pressed', String(emmaPaused));
+    emmaPauseButton.textContent = emmaPaused ? 'Resume animation' : 'Pause animation';
+  };
+  const emmaObserver = new IntersectionObserver(([entry]) => {
+    emmaVisible = entry.isIntersecting;
+    updateEmmaSignals();
+  }, { threshold: .2 });
+  emmaObserver.observe(emmaSignals);
+  emmaPauseButton.addEventListener('click', () => { emmaPaused = !emmaPaused; updateEmmaSignals(); });
+  reducedMotionQuery.addEventListener('change', updateEmmaSignals);
+  document.addEventListener('visibilitychange', updateEmmaSignals);
+  updateEmmaSignals();
+}
