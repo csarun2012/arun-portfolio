@@ -223,35 +223,35 @@
       <section class="selected-work" aria-labelledby="selected-work-title">
         <div class="shell">
           <div class="selected-work-heading">
-            <h2 id="selected-work-title">Selected engineering work</h2>
-            <a href="#stories">View all work <span aria-hidden="true">↗</span></a>
+            <p class="eyebrow"><span></span> Selected work</p>
+            <h2 id="selected-work-title">Engineering decisions. Measurable impact.</h2>
+            <p>Explore the systems, tradeoffs, and outcomes behind my work.</p>
           </div>
           <div class="selected-work-grid">
             <article class="work-preview">
+              <div class="work-architecture" role="img" aria-label="Envizi sustainability data flows through a reusable export service to Planning Analytics."><div class="work-node"><span class="work-node-label">Envizi data</span><span class="work-node-icon" aria-hidden="true"><i class="ph ph-database"></i></span><small>Sustainability records</small></div><span class="work-connector" aria-hidden="true">→</span><div class="work-node"><span class="work-node-label">Export service</span><span class="work-node-icon" aria-hidden="true"><i class="ph ph-stack"></i></span><small>Reusable dataset generation</small></div><span class="work-connector" aria-hidden="true">→</span><div class="work-node"><span class="work-node-label">Planning Analytics</span><span class="work-node-icon" aria-hidden="true"><i class="ph ph-chart-bar"></i></span><small>Enterprise planning</small></div></div>
               <div class="work-preview-copy">
-                <h3><i class="ph ph-share-network" aria-hidden="true"></i> Enterprise data integration</h3>
-                <p>A reusable export platform and secure pipeline connecting sustainability data with enterprise planning.</p>
-                <div class="work-preview-outcome"><small>Outcome</small><strong>First commercial outbound integration</strong></div>
-                <ul aria-label="Technologies"><li>SQL</li><li>.NET</li><li>APIs</li></ul>
-                <a href="#story-enterprise-integration">Explore the project <span aria-hidden="true">↗</span></a>
-              </div>
-              <div class="work-preview-diagram" aria-label="Envizi data flows through an export service to enterprise planning">
-                <span><i class="ph ph-database" aria-hidden="true"></i>Envizi data</span><b aria-hidden="true">↓</b><span>Export service</span><b aria-hidden="true">↓</b><span>Planning Analytics</span>
+                <span class="work-preview-category">Enterprise platforms</span>
+                <h3>Enterprise data integration</h3>
+                <p>Connecting sustainability data with enterprise planning through a reusable export platform.</p>
+                <div class="work-preview-outcome"><small>Commercial outcome</small><strong>First commercial outbound integration</strong></div>
+                <ul aria-label="Technologies"><li>.NET</li><li>SQL</li><li>APIs</li></ul>
+                <a href="#story-enterprise-integration">Explore case study <span aria-hidden="true">↗</span></a>
               </div>
             </article>
             <article class="work-preview">
+              <div class="work-architecture" role="img" aria-label="An engineer question flows through an MCP server to OpenSearch queries and diagnostic findings."><div class="work-node"><span class="work-node-label">Engineer question</span><span class="work-node-icon" aria-hidden="true"><i class="ph ph-chat-text"></i></span><small>Natural-language intent</small></div><span class="work-connector" aria-hidden="true">→</span><div class="work-node"><span class="work-node-label">MCP server</span><span class="work-node-icon" aria-hidden="true"><i class="ph ph-plugs-connected"></i></span><small>Diagnostic query workflow</small></div><span class="work-connector" aria-hidden="true">→</span><div class="work-node"><span class="work-node-label">OpenSearch</span><span class="work-node-icon" aria-hidden="true"><i class="ph ph-magnifying-glass"></i></span><small>Logs → findings</small></div></div>
               <div class="work-preview-copy">
-                <h3><i class="ph ph-cloud" aria-hidden="true"></i> Cloud attachment platform</h3>
-                <p>A reusable .NET platform for migrating and serving enterprise attachments through AWS S3.</p>
-                <div class="work-preview-outcome"><small>Outcome</small><strong>10M files migrated · 300–400 GB reduced</strong></div>
-                <ul aria-label="Technologies"><li>.NET Core</li><li>AWS S3</li></ul>
-                <a href="#story-cloud-attachments">Explore the project <span aria-hidden="true">↗</span></a>
-              </div>
-              <div class="work-preview-diagram" aria-label="Database files migrate through restartable batches to AWS S3">
-                <span><i class="ph ph-database" aria-hidden="true"></i>Database files</span><b aria-hidden="true">↓</b><span>Restartable batches</span><b aria-hidden="true">↓</b><span><i class="ph ph-cloud" aria-hidden="true"></i>AWS S3</span>
+                <span class="work-preview-category">AI-assisted engineering</span>
+                <h3>AI-assisted troubleshooting</h3>
+                <p>Turning engineering questions into guided log investigation for Power BI refresh diagnostics.</p>
+                <div class="work-preview-outcome"><small>Estimated outcome</small><strong>~60% less investigation effort</strong></div>
+                <ul aria-label="Technologies"><li>MCP</li><li>OpenSearch</li><li>AI workflows</li></ul>
+                <a href="#story-ai-diagnostics">Explore case study <span aria-hidden="true">↗</span></a>
               </div>
             </article>
           </div>
+          <a class="selected-work-all" href="#stories">View all engineering stories <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
@@ -472,7 +472,7 @@
               <ul class="story-tags" aria-label="Technologies used"><li>SQL Server</li><li>.NET</li><li>APIs</li><li>Power BI</li></ul>
             </article>
 
-            <article class="story-card">
+            <article class="story-card" id="story-ai-diagnostics">
               <div class="story-card-head"><span>04</span><p>AI-assisted operations</p></div>
               <div class="story-outcome"><span>Key outcome</span><strong>≈60% less investigation effort</strong></div>
               <h3>Turning natural-language questions into production diagnostics</h3>

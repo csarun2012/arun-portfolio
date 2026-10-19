@@ -863,3 +863,12 @@ if (emmaSignals && emmaPauseButton && 'IntersectionObserver' in window) {
   document.addEventListener('visibilitychange', updateEmmaSignals);
   updateEmmaSignals();
 }
+
+// Open the case-study details before following its preview anchor.
+document.querySelectorAll('.work-preview-copy > a[href^="#story-"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    const details = target?.querySelector('.story-details');
+    if (details) details.open = true;
+  });
+});
