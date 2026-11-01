@@ -2646,6 +2646,44 @@ body.resume-dialog-open { overflow: hidden; }
   .hero.hero-interactions-ready .hero-work-cue { animation: heroCueEntrance 600ms var(--motion-ease) 800ms both; }
 }
 @keyframes heroCueEntrance { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Featured Claude credential, paired with the existing IBM recognition. */
+.hero-certification { display: inline-flex; align-items: center; gap: 9px; max-width: 100%; margin-top: 18px; padding: 8px 11px; border: 1px solid rgba(217, 119, 87, .3); border-radius: 8px; background: rgba(217, 119, 87, .06); color: #e4b09b; font-size: 12px; line-height: 1.5; }
+.hero-certification:hover { color: #f7d6c8; border-color: #d97757; }
+.hero-certification:focus-visible { outline: 2px solid #e4b09b; outline-offset: 5px; }
+.hero-credentials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.hero-credentials .hero-certification { margin-top: 0; min-height: 44px; }
+.hero-certification-ibm { color: #e4c77f; border-color: rgba(223, 193, 123, .3); background: rgba(223, 193, 123, .06); }
+.hero-certification-ibm:hover { color: #f0d698; border-color: #a88740; }
+.hero-certification-subtitle { display: block; margin-top: 2px; color: #c2a69a; font-size: 10px; line-height: 1.4; }
+.hero-certification-ibm .hero-certification-subtitle { color: #b9ad8b; }
+.hero-credentials .hero-certification > span:not([aria-hidden]) { min-width: 0; text-align: left; }
+.hero-credentials .hero-certification > i, .hero-credentials .hero-certification > span[aria-hidden] { flex-shrink: 0; }
+#claude-certification, #ibm-certification { scroll-margin-top: 110px; }
+#credentials .recognition-featured { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#credentials .expert-recognition-card { grid-row: 1; }
+#credentials .claude-certification-card { grid-column: 2; grid-row: 1; min-width: 0; padding: 32px; background: radial-gradient(ellipse at 80% 0%, rgba(217, 119, 87, .14), transparent 70%), linear-gradient(135deg, #171b24, #0b1019); border-color: rgba(217, 119, 87, .38); }
+#credentials .claude-certification-card .credential-meta { flex-wrap: wrap; gap: 10px; }
+#credentials .claude-certification-card .credential-category { color: #e4b09b; }
+.claude-badge { width: 160px; height: 160px; margin: 30px 0 26px; background: #faf9f5 url("assets/claude-certified-architect-foundations.png") 50.65% 91% / 498.7% auto no-repeat; border-radius: 8px; }
+#credentials .expert-badge { width: 160px; height: 160px; flex-basis: 160px; object-fit: cover; }
+#credentials .expert-recognition-content { flex-direction: column; align-items: flex-start; }
+#credentials .expert-recognition-copy h3 { white-space: normal; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.25; letter-spacing: -.025em; }
+#credentials .expert-recognition-card .credential-links a, #credentials .claude-certification-card .credential-links a { min-height: 44px; padding: 10px 14px; border: 1px solid currentColor; border-radius: 8px; font-size: 12px; }
+#credentials .claude-certification-card h3 { margin: 0; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.25; letter-spacing: -.025em; }
+#credentials .claude-certification-card .certification-dates { color: var(--muted); font-size: 12px; line-height: 1.8; }
+#credentials .claude-certification-card .credential-links a { display: inline-flex; align-items: center; min-height: 44px; color: #e4b09b; }
+#credentials .claude-certification-card .credential-links a:hover { color: #f7d6c8; }
+#credentials .recognition-featured .award-card { grid-column: 1; }
+@media (max-width: 900px) {
+  #credentials .expert-recognition-card, #credentials .claude-certification-card { grid-column: 1 / -1; grid-row: auto; }
+}
+@media (max-width: 600px) {
+  #credentials .recognition-featured { grid-template-columns: minmax(0, 1fr); }
+  #credentials .claude-certification-card { padding: 24px; }
+  #credentials .expert-recognition-copy h3, #credentials .claude-certification-card h3 { min-height: 0; }
+  .hero-certification { font-size: 11px; text-align: left; }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero .hero-ambient { transform: none; transition: none; }
   .hero-actions .button > span { transition: none; }
