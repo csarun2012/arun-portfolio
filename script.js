@@ -143,6 +143,41 @@ const revealImmediately = (element) => {
   element.classList.add('is-visible', 'reveal-complete');
 };
 
+// Reveal the destination before native anchor scrolling, including deep links
+// and history navigation. Keep normal scroll reveals elsewhere on the page.
+const revealAnchorDestination = (hash) => {
+  if (!hash || hash === '#') return;
+  let target;
+  try {
+    target = document.getElementById(decodeURIComponent(hash.slice(1)));
+  } catch {
+    return;
+  }
+  if (!target) return;
+  const destination = target.closest('section') || target;
+  revealItems.forEach((element) => {
+    if (destination.contains(element) || element.contains(target)) {
+      element.classList.add('anchor-revealed');
+      revealImmediately(element);
+    }
+  });
+};
+
+document.addEventListener('click', (event) => {
+  const link = event.target.closest?.('a[href]');
+  if (!link || event.defaultPrevented || event.button !== 0
+      || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey
+      || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+  const destination = new URL(link.href, window.location.href);
+  if (destination.origin === window.location.origin
+      && destination.pathname === window.location.pathname
+      && destination.search === window.location.search) {
+    revealAnchorDestination(destination.hash);
+  }
+});
+window.addEventListener('hashchange', () => revealAnchorDestination(window.location.hash));
+revealAnchorDestination(window.location.hash);
+
 if (reducedMotionQuery.matches || !('IntersectionObserver' in window)) {
   revealItems.forEach(revealImmediately);
 } else {

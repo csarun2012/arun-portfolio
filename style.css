@@ -375,6 +375,8 @@ button { font: inherit; }
 .job-stack span:not(:last-child)::after { content: "·"; margin-left: 9px; color: #45546a; }
 .timeline-content > .job-impact-label { margin: 20px 0 8px; color: #7e91ab; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
 .job-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0; }
+.job-credential-link { display: inline-flex; border-radius: 7px; }
+.job-credential-link:focus-visible { outline: 2px solid #9ac4fc; outline-offset: 3px; }
 .job-highlights span { padding: 6px 10px; color: #bec8d8; background: rgba(255, 255, 255, 0.035); border: 1px solid var(--line); border-radius: 7px; font-size: 11px; }
 
 .credentials-section { background: linear-gradient(120deg, #090b10, #0c1018); border-block: 1px solid var(--line); }
@@ -765,8 +767,8 @@ code { overflow-wrap: anywhere; }
 table { width: 100%; max-width: 100%; }
 
 .shell { width: min(calc(100% - 32px), var(--shell)); margin-inline: auto; }
-.section { padding-block: clamp(72px, 10vw, 120px); }
-.contact-section { padding-block: clamp(80px, 9vw, 120px); }
+.section { padding-block: clamp(64px, 8vw, 96px); }
+.contact-section { padding-block: clamp(72px, 8vw, 104px); }
 main > section[id] { scroll-margin-top: 66px; }
 .section-heading h2 { font-size: clamp(36px, 10vw, 46px); }
 .wide-heading { gap: clamp(24px, 5vw, 48px); }
@@ -2374,10 +2376,11 @@ body.resume-dialog-open { overflow: hidden; }
 #recommendations .show-more { margin-top: 24px; }
 .linkedin-announcement { border-top: 1px solid rgba(127, 164, 216, .2); padding-top: 6px; }
 .linkedin-announcement > summary { line-height: 1.6; }
+#credentials .recognition-featured:has(.linkedin-announcement[open]) { align-items: start; }
 .linkedin-announcement > summary i { margin-right: 5px; }
-#credentials .expert-recognition-copy .linkedin-embed-note { margin: 0 0 12px; font-size: 12px; color: #9baac0; }
+#credentials .linkedin-announcement .linkedin-embed-note { margin: 0 0 12px; font-size: 12px; color: #9baac0; }
 .linkedin-embed-container { width: 100%; max-width: 504px; overflow: hidden; border-radius: 8px; }
-.linkedin-embed-container iframe { display: block; width: 100%; max-width: 100%; height: 467px; border: 0; background: #fff; }
+.linkedin-embed-container iframe { display: block; width: 100%; max-width: 100%; border: 0; background: #fff; }
 .linkedin-post-fallback { display: inline-block; margin-top: 12px; padding-block: 6px; color: #9ac4fc; font-size: 12px; }
 @media (max-width: 600px) {
   #recommendations .recommendation-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
@@ -2655,6 +2658,7 @@ body.resume-dialog-open { overflow: hidden; }
 .hero-credentials .hero-certification { margin-top: 0; min-height: 44px; }
 .hero-certification-ibm { color: #e4c77f; border-color: rgba(223, 193, 123, .3); background: rgba(223, 193, 123, .06); }
 .hero-certification-ibm:hover { color: #f0d698; border-color: #a88740; }
+.reveal-item.anchor-revealed.reveal-complete { transition: border-color 220ms var(--motion-ease), box-shadow 220ms var(--motion-ease), background 220ms var(--motion-ease), filter 220ms var(--motion-ease); }
 .hero-certification-subtitle { display: block; margin-top: 2px; color: #c2a69a; font-size: 10px; line-height: 1.4; }
 .hero-certification-ibm .hero-certification-subtitle { color: #b9ad8b; }
 .hero-credentials .hero-certification > span:not([aria-hidden]) { min-width: 0; text-align: left; }
