@@ -1,6 +1,14 @@
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 document.documentElement.classList.add('motion-ready');
 
+const earlierCredentials = document.querySelector('.earlier-credentials');
+if (earlierCredentials) {
+  const compactCredentials = window.matchMedia('(max-width: 600px)');
+  const updateCredentialsLayout = () => { earlierCredentials.open = !compactCredentials.matches; };
+  updateCredentialsLayout();
+  compactCredentials.addEventListener('change', updateCredentialsLayout);
+}
+
 const menuButton = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.site-nav');
 const siteHeader = document.querySelector('.site-header');

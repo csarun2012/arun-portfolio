@@ -2682,36 +2682,70 @@ body.resume-dialog-open { overflow: hidden; }
 #credentials .claude-certification-card .credential-category { color: #e4b09b; }
 .claude-badge { width: 160px; height: 160px; margin: 30px 0 26px; background: #faf9f5 url("assets/claude-certified-architect-foundations.png") 50.65% 91% / 498.7% auto no-repeat; border-radius: 8px; }
 #credentials .expert-badge { width: 160px; height: 160px; flex-basis: 160px; object-fit: cover; }
-#credentials .expert-recognition-content { flex-direction: column; align-items: flex-start; }
+#credentials .expert-recognition-content, #credentials .claude-recognition-content { display: flex; flex-direction: row; align-items: flex-start; gap: 24px; margin-top: 30px; }
+#credentials .expert-recognition-copy, #credentials .claude-recognition-copy { flex: 1; min-width: 0; }
+#credentials .expert-recognition-card, #credentials .claude-certification-card { display: flex; flex-direction: column; }
+#credentials .expert-recognition-card > .credential-links, #credentials .claude-certification-card > .credential-links { margin-top: auto; padding-top: 24px; }
+#credentials .claude-badge { flex: 0 0 160px; margin: 0; }
 #credentials .expert-recognition-copy h3 { white-space: normal; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.25; letter-spacing: -.025em; }
+#credentials .recognition-featured .recognition-description { margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+#credentials .claude-recognition-copy .certification-subtitle { margin: 16px 0 0; color: #dfc17b; font-size: 14px; font-weight: 600; line-height: 1.6; }
 #credentials .expert-recognition-card .credential-links a, #credentials .claude-certification-card .credential-links a { min-height: 44px; padding: 10px 14px; border: 1px solid currentColor; border-radius: 8px; font-size: 12px; }
 #credentials .claude-certification-card h3 { margin: 0; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.25; letter-spacing: -.025em; }
-#credentials .claude-certification-card .certification-dates { color: var(--muted); font-size: 12px; line-height: 1.8; }
+#credentials .claude-certification-card .certification-dates { margin: 14px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 #credentials .claude-certification-card .credential-links a { display: inline-flex; align-items: center; min-height: 44px; color: #e4b09b; }
 #credentials .claude-certification-card .credential-links a:hover { color: #f7d6c8; }
 #credentials .recognition-featured .award-card { grid-column: 1; }
 #credentials .recognition-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
 #credentials .recognition-highlights article { grid-column: auto; display: flex; flex-direction: column; padding: 28px; min-width: 0; }
-#credentials .recognition-highlights .credential-meta { min-height: 24px; gap: 10px; }
+#credentials .recognition-highlights .credential-meta { min-height: 24px; gap: 10px; align-items: center; }
+#credentials .recognition-highlights .credential-meta small { margin-top: 0; }
 #credentials .recognition-highlights article > strong { margin-top: 24px; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.3; overflow-wrap: anywhere; }
 #credentials .recognition-highlights article > p, #credentials .recognition-highlights .credential-description { margin: 10px 0 0; font-size: 14px; line-height: 1.65; }
-#credentials .recognition-highlights .north-star-card { background: radial-gradient(ellipse at 100% 0%, rgba(205, 157, 55, .14), transparent 65%), linear-gradient(135deg, #171b24, #0b1019); border-color: rgba(223, 193, 123, .34); }
+#credentials .recognition-highlights .north-star-card { background: radial-gradient(ellipse at 100% 0%, rgba(205, 157, 55, .08), transparent 65%), linear-gradient(135deg, #101721, #0b1019); }
+#credentials .recognition-highlights .entrepreneur-card { background: radial-gradient(ellipse at 100% 0%, rgba(101, 88, 255, .08), transparent 65%), linear-gradient(135deg, #101721, #0b1019); }
+#credentials .recognition-highlights .publication-card { background: radial-gradient(ellipse at 100% 0%, rgba(42, 119, 224, .08), transparent 65%), linear-gradient(135deg, #101721, #0b1019); }
 #credentials .north-star-emblem { position: absolute; top: 68px; right: 24px; width: 100px; height: 74px; object-fit: contain; }
+#credentials .entrepreneur-emblem { position: absolute; top: 68px; right: 22px; width: 80px; height: 80px; object-fit: contain; }
+#credentials .emma-emblem { position: absolute; top: 68px; right: 22px; width: 80px; height: 80px; object-fit: contain; }
+#credentials .recognition-highlights .publication-card > strong, #credentials .recognition-highlights .publication-card > .recognition-subtitle { padding-right: 84px; }
+#credentials .recognition-highlights .entrepreneur-card > strong, #credentials .recognition-highlights .entrepreneur-card > .recognition-subtitle { padding-right: 84px; }
 #credentials .recognition-highlights .north-star-card > strong, #credentials .recognition-highlights .north-star-card > .north-star-event { padding-right: 108px; }
 #credentials .recognition-highlights .north-star-card > .north-star-event { color: #dfc17b; font-size: 13px; line-height: 1.5; }
 #credentials .recognition-highlights article > .recognition-subtitle { color: #dfc17b; font-size: 13px; line-height: 1.5; }
 #credentials .recognition-highlights .publication-card .credential-links { margin-top: 16px; padding-top: 0; }
+#credentials .recognition-highlights .linkedin-announcement { margin-top: 20px; }
+#credentials .recognition-highlights:has(.linkedin-announcement[open]) { align-items: start; }
+#credentials .earlier-credentials > summary { display: none; }
+#credentials .credential-links a { min-height: 44px; display: inline-flex; align-items: center; }
 /* Keep supporting labels readable against the dark cards. */
 .timeline-date, .timeline-content > .job-stack, .job-location,
 .credential-grid article .credential-meta small, .story-tags li { color: #b5c2d2; }
 .story-card-head span, .story-role strong, .story-card dt { color: #a9bdd8; }
 @media (max-width: 900px) { #credentials .recognition-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); } #credentials .recognition-highlights .publication-card { grid-column: 1 / -1; } }
-@media (max-width: 600px) { #credentials .recognition-highlights { grid-template-columns: minmax(0, 1fr); gap: 14px; } #credentials .recognition-highlights .publication-card { grid-column: auto; } #credentials .recognition-highlights article { padding: 24px; } }
+@media (max-width: 600px) {
+  #credentials .recognition-highlights { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  #credentials .recognition-highlights .publication-card { grid-column: auto; }
+  #credentials .recognition-highlights article { padding: 24px; }
+  #credentials .earlier-credentials > summary { display: list-item; cursor: pointer; padding: 14px 16px; color: #afd1ff; border: 1px solid rgba(149, 172, 206, .25); border-radius: 10px; font-size: 14px; font-weight: 600; }
+  #credentials .earlier-credentials > summary:focus-visible { outline: 2px solid #80b8ff; outline-offset: 4px; }
+  #credentials .earlier-credentials[open] .recognition-secondary { margin-top: 14px; }
+}
+@media (max-width: 360px) {
+  #credentials .north-star-emblem { width: 76px; height: 60px; right: 18px; }
+  #credentials .entrepreneur-emblem { width: 64px; height: 64px; right: 18px; }
+  #credentials .emma-emblem { width: 64px; height: 64px; right: 18px; }
+  #credentials .recognition-highlights .publication-card > strong, #credentials .recognition-highlights .publication-card > .recognition-subtitle { padding-right: 66px; }
+  #credentials .recognition-highlights .entrepreneur-card > strong, #credentials .recognition-highlights .entrepreneur-card > .recognition-subtitle { padding-right: 66px; }
+  #credentials .recognition-highlights .north-star-card > strong, #credentials .recognition-highlights .north-star-card > .north-star-event { padding-right: 82px; }
+}
 @media (max-width: 900px) {
   #credentials .expert-recognition-card, #credentials .claude-certification-card { grid-column: 1 / -1; grid-row: auto; }
 }
 @media (max-width: 600px) {
   #credentials .recognition-featured { grid-template-columns: minmax(0, 1fr); }
+  #credentials .expert-recognition-content, #credentials .claude-recognition-content { flex-direction: column; gap: 20px; }
+  #credentials .expert-badge, #credentials .claude-badge { width: 140px; height: 140px; flex-basis: 140px; }
   #credentials .claude-certification-card { padding: 24px; }
   #credentials .expert-recognition-copy h3, #credentials .claude-certification-card h3 { min-height: 0; }
   .hero-certification { font-size: 11px; text-align: left; }
