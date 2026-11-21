@@ -2770,10 +2770,11 @@ body.resume-dialog-open { overflow: hidden; }
 .hero::before { left: -32%; transform: rotate(4deg); }
 .hero::after { right: -15%; bottom: -80px; transform: rotate(-3deg); }
 .hero .hero-layout {
-  min-height: 700px;
+  min-height: auto;
   grid-template-columns: minmax(0, 1.8fr) minmax(0, .9fr);
   gap: clamp(32px, 4vw, 74px);
-  padding-block: 75px;
+  padding-top: 75px;
+  padding-bottom: 20px;
 }
 @media (min-width: 901px) {
   .hero .hero-layout { width: min(calc(100% - 12vw), 1520px); }
