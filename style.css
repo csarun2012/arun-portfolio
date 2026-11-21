@@ -2698,8 +2698,8 @@ body.resume-dialog-open { overflow: hidden; }
 #credentials .recognition-featured .award-card { grid-column: 1; }
 #credentials .recognition-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
 #credentials .recognition-highlights article { grid-column: auto; display: flex; flex-direction: column; padding: 28px; min-width: 0; }
-#credentials .recognition-highlights .credential-meta { min-height: 24px; gap: 10px; align-items: center; }
-#credentials .recognition-highlights .credential-meta small { margin-top: 0; }
+#credentials .recognition-highlights .credential-meta { display: flex; min-height: 24px; gap: 10px; align-items: center; }
+#credentials .recognition-highlights .credential-meta small { max-width: 58%; margin-top: 0; text-align: right; }
 #credentials .recognition-highlights article > strong { margin-top: 24px; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.3; overflow-wrap: anywhere; }
 #credentials .recognition-highlights article > p, #credentials .recognition-highlights .credential-description { margin: 10px 0 0; font-size: 14px; line-height: 1.65; }
 #credentials .recognition-highlights .north-star-card { background: radial-gradient(ellipse at 100% 0%, rgba(205, 157, 55, .08), transparent 65%), linear-gradient(135deg, #101721, #0b1019); }
