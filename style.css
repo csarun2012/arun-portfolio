@@ -2742,6 +2742,7 @@ body.resume-dialog-open { overflow: hidden; }
 }
 @media (max-width: 900px) {
   #credentials .expert-recognition-card, #credentials .claude-certification-card { grid-column: 1 / -1; grid-row: auto; }
+  #credentials .expert-recognition-copy h3 { white-space: normal; }
 }
 @media (max-width: 600px) {
   #credentials .recognition-featured { grid-template-columns: minmax(0, 1fr); }
